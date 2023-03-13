@@ -1,0 +1,47 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#main_box {
+    min-height: 100%;
+    background-color: aquamarine;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 50px 4fr 1fr;
+    grid-template-areas:
+            "menu menu menu"
+            "file_selection program_code code_part"
+            "file_selection tabs tabs";
+
+}
+
+
+.file_selection {
+
+    grid-area: file_selection;
+    background-color: blue;
+
+}
+
+.code_part {
+    grid-area: code_part;
+    background-color: orange;
+}
+
+.menu {
+    grid-area: menu;
+    background-color: darkgrey;
+}
+
+.program_code {
+    grid-area: program_code;
+    background-color: grey;
+}
+
+.tabs {
+    grid-area: tabs;
+    background-color: violet;
+}
