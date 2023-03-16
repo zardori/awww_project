@@ -1,3 +1,16 @@
+
+:root {
+    --main_bg_color: black;
+    --main_text_color: white;
+    --main_border_color: blue;
+    --nav_bar_height: 40px;
+    --menu_item_padding: 10px;
+}
+
+
+
+
+
 html, body {
     height: 100%;
     margin: 0;
@@ -9,8 +22,8 @@ html, body {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 50px 4fr 1fr;
+    grid-template-columns: 2fr 5fr 3fr;
+    grid-template-rows: var(--nav_bar_height) 4fr 1fr;
     grid-template-areas:
             "menu menu menu"
             "file_selection program_code code_part"
@@ -18,30 +31,52 @@ html, body {
 
 }
 
+.menu_item {
+    display: inline-block;
+    height: var(--nav_bar_height);
+    line-height: var(--nav_bar_height);
+    margin-left: var(--menu_item_padding);
+    margin-right: var(--menu_item_padding);
+    text-align: center;
+    vertical-align: middle;
 
-.file_selection {
+}
+
+
+
+.has_main_style {
+
+    border-color: var(--main_border_color);
+    background-color: var(--main_bg_color);
+    color: var(--main_text_color);
+
+}
+
+
+#file_selection {
 
     grid-area: file_selection;
     background-color: blue;
 
 }
 
-.code_part {
+#code_part {
     grid-area: code_part;
     background-color: orange;
 }
 
-.menu {
+#nav_bar {
     grid-area: menu;
-    background-color: darkgrey;
 }
 
-.program_code {
+#program_code {
     grid-area: program_code;
     background-color: grey;
+    border-width: 2px;
+    border-style: solid;
 }
 
-.tabs {
+#tabs {
     grid-area: tabs;
     background-color: violet;
 }
