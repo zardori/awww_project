@@ -3,8 +3,11 @@
     --main_bg_color: black;
     --main_text_color: white;
     --main_border_color: blue;
+    --selected_tab_color: #333333;
     --nav_bar_height: 40px;
     --menu_item_padding: 10px;
+    --tabs_bar_height: 25px;
+    --tab_button_padding: 10px;
 }
 
 
@@ -79,4 +82,27 @@ html, body {
 #tabs {
     grid-area: tabs;
     background-color: violet;
+    display: grid;
+    grid-template-rows: var(--tabs_bar_height) auto;
+}
+
+
+#tabs_bar {
+    height: var(--tabs_bar_height);
+    width: 100%;
+
+}
+
+#tabs_content {
+    width: 100%;
+
+}
+
+.tab_button {
+    height: var(--tabs_bar_height);
+    line-height: var(--tabs_bar_height);
+    display: inline-block;
+    padding-left: var(--tab_button_padding);
+    padding-right: var(--tab_button_padding);
+
 }
