@@ -3,7 +3,12 @@
     --main_bg_color: black;
     --main_text_color: white;
     --main_border_color: blue;
-    --selected_tab_color: #333333;
+    --selected_tab_color: lightgreen;
+    --unselected_tab_color: darkgreen;
+
+
+
+
     --nav_bar_height: 40px;
     --menu_item_padding: 10px;
     --tabs_bar_height: 25px;
@@ -90,6 +95,7 @@ html, body {
 #tabs_bar {
     height: var(--tabs_bar_height);
     width: 100%;
+    background-color: var(--unselected_tab_color);
 
 }
 
@@ -104,5 +110,19 @@ html, body {
     display: inline-block;
     padding-left: var(--tab_button_padding);
     padding-right: var(--tab_button_padding);
-
+    vertical-align: middle;
+    background-color: var(--unselected_tab_color);
 }
+
+.tab_button:hover {
+    cursor: pointer;
+}
+
+.tab_content {
+    height: 100%;
+    width: 100%;
+    display: none;
+    background-color: var(--selected_tab_color);
+}
+
+
