@@ -7,17 +7,23 @@
     <link rel="stylesheet" href="tabs_style.css">
     <script src = "content_loading.js"></script>
     <script src = "tabs.js"></script>
+    <script src = "menu_buttons.js"></script>
+    <script src = "onload.js"></script>
     <title>Title</title>
 </head>
 <body>
-
-    <div id = "testId" > </div>
     <div id = "main_box">
         <div id = "nav_bar" class = "has_main_style">
-            <div class = "menu_item"> File </div>
-            <div class = "menu_item"> Edit </div>
-            <div class = "menu_item"> View </div>
-            <div class = "menu_item"> Navigate </div>
+            <button id = "file_selection_opener" class = "toggle_button"> open dir </button>
+            <button id = "file_selection_closer" class = "toggle_button"> close dir </button>
+            <button id = "menu_opener" class = "toggle_button"> open menu </button>
+            <button id = "menu_closer" class = "toggle_button"> close menu </button>
+            <div id = "menu" class = "has_main_style">
+                <div class = "menu_item" > File </div>
+                <div class = "menu_item" > Edit </div>
+                <div class = "menu_item" > View </div>
+                <div class = "menu_item" > Navigate </div>
+            </div>
         </div>
         <div id = "tabs_wrapper">
             <div id = "tabs" class = "has_main_style">

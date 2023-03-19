@@ -34,7 +34,7 @@ function selectTab(tab_num) {
 
 }
 
-window.onload = function() {
+function prepareTabs() {
 
     let tab_idx = 0;
     for (let tab_button of document.getElementById("tabs_bar").children) {
@@ -50,35 +50,35 @@ window.onload = function() {
 
     // Prepare tabs open button and tabs close button for mobile version
 
-    const TABS_OPENER = document.getElementById("tabs_opener");
+    const tabs_opener = document.getElementById("tabs_opener");
 
-    const TABS_CLOSER = document.getElementById("tabs_closer");
+    const tabs_closer = document.getElementById("tabs_closer");
 
-    const TABS_WRAPPER = document.getElementById("tabs_wrapper");
+    const tabs_wrapper = document.getElementById("tabs_wrapper");
 
-    TABS_OPENER.addEventListener("click", function() {
-        TABS_WRAPPER.style.visibility = "visible";
-        TABS_CLOSER.style.visibility = "visible";
-        TABS_OPENER.style.visibility = "hidden";
+    tabs_opener.addEventListener("click", function() {
+        tabs_wrapper.style.visibility = "visible";
+        tabs_closer.style.visibility = "visible";
+        tabs_opener.style.visibility = "hidden";
     })
 
-    TABS_CLOSER.addEventListener("click", function() {
-        TABS_WRAPPER.style.visibility = "hidden";
-        TABS_OPENER.style.visibility = "visible";
-        TABS_CLOSER.style.visibility = "hidden";
+    tabs_closer.addEventListener("click", function() {
+        tabs_wrapper.style.visibility = "hidden";
+        tabs_opener.style.visibility = "visible";
+        tabs_closer.style.visibility = "hidden";
     })
 
 
     window.addEventListener("resize", function() {
 
         if (window.innerWidth <= MAX_MOBILE_SIZE) {
-            TABS_WRAPPER.style.visibility = "hidden";
-            TABS_OPENER.style.visibility = "visible";
-            TABS_CLOSER.style.visibility = "hidden";
+            tabs_wrapper.style.visibility = "hidden";
+            tabs_opener.style.visibility = "visible";
+            tabs_closer.style.visibility = "hidden";
         } else {
-            TABS_WRAPPER.style.visibility = "visible";
-            TABS_OPENER.style.visibility = "hidden";
-            TABS_CLOSER.style.visibility = "hidden";
+            tabs_wrapper.style.visibility = "visible";
+            tabs_opener.style.visibility = "hidden";
+            tabs_closer.style.visibility = "hidden";
         }
 
     })
