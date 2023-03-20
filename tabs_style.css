@@ -38,4 +38,6 @@
     background-color: var(--selected_tab_color);
 }
 
-
+.tabs_toggle_button {
+    height: var(--nav_bar_height);
+}

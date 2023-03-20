@@ -1,21 +1,28 @@
-
 :root {
 
     /* colors */
+    /* dark mode */
+
     --main_bg_color: black;
     --secondary_bg_color: darkblue;
-    --third_bg_color: darkgrey;
     --main_text_color: white;
     --main_border_color: aqua;
 
 
 
+    /* light mode */
+    /*
+    --main_bg_color: lightgrey;
+    --secondary_bg_color: lightgreen;
+    --main_text_color: darkmagenta;
+    --main_border_color: darkgreen;
+    */
 
 
     /* fixed distances */
     --nav_bar_height: 40px;
     --menu_item_padding: 10px;
-    --tabs_bar_height: 25px;
+    --tabs_bar_height: 35px;
     --tab_button_padding: 10px;
     --main_border_width: 2px;
 
@@ -26,8 +33,7 @@
 
     /* mobile */
     --mobile_tabs_height: 35%;
-    --mobile_file_selection_width: 30%;
-
+    --mobile_file_selection_width: 40%;
 }
 
 html, body {
@@ -45,25 +51,30 @@ html, body {
     display: grid;
 }
 
+.has_main_style {
+    background-color: var(--main_bg_color);
+    color: var(--main_text_color);
+    border: var(--main_border_width) solid var(--main_border_color);
+}
+
 #file_selection {
     grid-area: file_selection;
     background-color: var(--secondary_bg_color);
-    border: 2px solid var(--main_border_color);
+    border: var(--main_border_width) solid var(--main_border_color);
     color: var(--main_text_color);
+}
+
+.file_system_item {
+    margin-left: 20px;
+
 }
 
 #program_code {
     grid-area: program_code;
-    background-color: var(--main_bg_color);
-    color: var(--main_text_color);
-    border: 2px solid var(--main_border_color);
 }
 
 #code_part {
     grid-area: code_part;
-    background-color: var(--main_bg_color);
-    color: var(--main_text_color);
-    border: 2px solid var(--main_border_color);
 }
 
 #nav_bar {
@@ -74,12 +85,11 @@ html, body {
     color: var(--main_text_color);
 }
 
-
-
-
 .menu_item:hover {
     cursor: pointer;
 }
+
+
 
 @media only screen and (max-width: 600px) {
 
@@ -98,7 +108,7 @@ html, body {
         top: var(--nav_bar_height);
         left: 0;
         height: calc(100% - var(--nav_bar_height));
-        width: 30%;
+        width: var(--mobile_file_selection_width);
     }
 
     #tabs_wrapper {
@@ -160,10 +170,11 @@ html, body {
     #menu {
         display: none;
         position: absolute;
-        top: 40px;
+        top: var(--nav_bar_height);
         left: 0;
         width: 100%;
-        border: 2px solid var(--main_border_color);
+        border: var(--main_border_width) solid var(--main_border_color);
+        background-color: var(--main_bg_color);
     }
 
     .menu_item {
@@ -172,11 +183,11 @@ html, body {
         text-align: center;
     }
 
-
-
+    .toggle_button {
+        color: var(--main_text_color);
+        background-color: var(--secondary_bg_color);
+    }
 }
-
-
 
 
 @media only screen and (min-width: 601px) {
@@ -212,29 +223,3 @@ html, body {
 }
 
 
-
-
-
-/*
-.has_main_style {
-
-    border-color: var(--main_border_color);
-    background-color: var(--main_bg_color);
-    color: var(--main_text_color);
-
-}
-
-*/
-
-
-
-
-
-
-
-
-
-.file_system_item {
-    margin-left: 20px;
-
-}
