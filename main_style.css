@@ -1,14 +1,12 @@
 :root {
 
     /* colors */
-    /* dark mode */
 
+    /* dark mode */
     --main_bg_color: black;
     --secondary_bg_color: darkblue;
     --main_text_color: white;
     --main_border_color: aqua;
-
-
 
     /* light mode */
     /*
@@ -17,7 +15,6 @@
     --main_text_color: darkmagenta;
     --main_border_color: darkgreen;
     */
-
 
     /* fixed distances */
     --nav_bar_height: 40px;
@@ -71,10 +68,14 @@ html, body {
 
 #program_code {
     grid-area: program_code;
+    overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 #code_part {
     grid-area: code_part;
+    overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 #nav_bar {
@@ -88,7 +89,6 @@ html, body {
 .menu_item:hover {
     cursor: pointer;
 }
-
 
 
 @media only screen and (max-width: 600px) {
