@@ -13,12 +13,12 @@ function prepareMenuButtons() {
 
         file_selection.style.visibility = "visible";
         file_selection_opener.style.display = "none";
-        file_selection_closer.style.display = "inline-block";
+        file_selection_closer.style.display = "block";
     });
 
     file_selection_closer.addEventListener("click", function() {
         file_selection.style.visibility = "hidden";
-        file_selection_opener.style.display = "inline-block";
+        file_selection_opener.style.display = "block";
         file_selection_closer.style.display = "none";
     })
 
@@ -26,13 +26,13 @@ function prepareMenuButtons() {
     // menu
     menu_opener.addEventListener("click", function() {
         menu.style.display = "block";
-        menu_closer.style.display = "inline-block";
+        menu_closer.style.display = "block";
         menu_opener.style.display = "none";
     })
 
     menu_closer.addEventListener("click", function() {
         menu.style.display = "none";
-        menu_opener.style.display = "inline-block";
+        menu_opener.style.display = "block";
         menu_closer.style.display = "none";
     })
 
@@ -42,10 +42,10 @@ function prepareMenuButtons() {
 
         if (window.innerWidth <= MAX_MOBILE_SIZE) {
             menu.style.display = "none";
-            menu_opener.style.display = "inline-block";
+            menu_opener.style.display = "block";
             menu_closer.style.display = "none";
             file_selection.style.visibility = "hidden";
-            file_selection_opener.style.display = "inline-block";
+            file_selection_opener.style.display = "block";
             file_selection_closer.style.display = "none";
         } else {
             menu.style.display = "block";

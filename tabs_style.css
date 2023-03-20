@@ -3,6 +3,8 @@
     height: 100%;
     display: grid;
     grid-template-rows: var(--tabs_bar_height) auto;
+    border: 2px solid var(--main_border_color);
+    color: var(--tabs_text_color);
 }
 
 #tabs_bar {

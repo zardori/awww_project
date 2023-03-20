@@ -1,27 +1,34 @@
 
 :root {
+
+    /* colors */
     --main_bg_color: black;
+    --secondary_bg_color: darkblue;
+    --third_bg_color: darkgrey;
     --main_text_color: white;
-    --main_border_color: blue;
-    --selected_tab_color: lightgreen;
-    --unselected_tab_color: darkgreen;
+    --main_border_color: aqua;
 
 
 
 
+
+    /* fixed distances */
     --nav_bar_height: 40px;
     --menu_item_padding: 10px;
     --tabs_bar_height: 25px;
     --tab_button_padding: 10px;
+    --main_border_width: 2px;
 
+    /* tabs */
+    --unselected_tab_color: var(--main_bg_color);
+    --selected_tab_color: var(--secondary_bg_color);
+    --tabs_text_color: var(--main_text_color);
 
     /* mobile */
     --mobile_tabs_height: 35%;
-
+    --mobile_file_selection_width: 30%;
 
 }
-
-
 
 html, body {
     height: 100%;
@@ -32,14 +39,47 @@ html, body {
     box-sizing: border-box;
 }
 
-
 #main_box {
     width: 100%;
     height: 100%;
     display: grid;
 }
 
+#file_selection {
+    grid-area: file_selection;
+    background-color: var(--secondary_bg_color);
+    border: 2px solid var(--main_border_color);
+    color: var(--main_text_color);
+}
 
+#program_code {
+    grid-area: program_code;
+    background-color: var(--main_bg_color);
+    color: var(--main_text_color);
+    border: 2px solid var(--main_border_color);
+}
+
+#code_part {
+    grid-area: code_part;
+    background-color: var(--main_bg_color);
+    color: var(--main_text_color);
+    border: 2px solid var(--main_border_color);
+}
+
+#nav_bar {
+    grid-area: nav_bar;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--main_bg_color);
+    color: var(--main_text_color);
+}
+
+
+
+
+.menu_item:hover {
+    cursor: pointer;
+}
 
 @media only screen and (max-width: 600px) {
 
@@ -47,7 +87,7 @@ html, body {
         grid-template-rows: var(--nav_bar_height) 2fr 1fr;
         grid-template-columns: 100%;
         grid-template-areas:
-            "menu"
+            "nav_bar"
             "program_code"
             "code_part";
     }
@@ -82,8 +122,20 @@ html, body {
         visibility: hidden;
     }
 
+
+    .toggle_button:hover {
+        cursor: pointer;
+    }
+
+    .nav_bar_toggle_button {
+        height: var(--nav_bar_height);
+        line-height: var(--nav_bar_height);
+        padding-left: var(--menu_item_padding);
+        padding-right: var(--menu_item_padding);
+    }
+
     #menu_opener {
-        display: inline-block;
+        display: block;
     }
 
     #menu_closer {
@@ -91,17 +143,18 @@ html, body {
     }
 
     #file_selection_opener {
-        display: inline-block;
-
+        display: block;
     }
 
     #file_selection_opener img {
-        max-height: var(--nav_bar_height);
+        height: var(--nav_bar_height);
+        display: block;
     }
 
 
     #file_selection_closer {
         display: none;
+        background-color: var(--secondary_bg_color);
     }
 
     #menu {
@@ -109,7 +162,17 @@ html, body {
         position: absolute;
         top: 40px;
         left: 0;
+        width: 100%;
+        border: 2px solid var(--main_border_color);
     }
+
+    .menu_item {
+        display: block;
+        padding: var(--menu_item_padding);
+        text-align: center;
+    }
+
+
 
 }
 
@@ -122,7 +185,7 @@ html, body {
         grid-template-columns: 2fr 5fr 3fr;
         grid-template-rows: var(--nav_bar_height) 4fr 1fr;
         grid-template-areas:
-            "menu menu menu"
+            "nav_bar nav_bar nav_bar"
             "file_selection program_code code_part"
             "file_selection tabs tabs";
     }
@@ -140,8 +203,8 @@ html, body {
         display: inline-block;
         height: var(--nav_bar_height);
         line-height: var(--nav_bar_height);
-        margin-left: var(--menu_item_padding);
-        margin-right: var(--menu_item_padding);
+        padding-left: var(--menu_item_padding);
+        padding-right: var(--menu_item_padding);
         text-align: center;
         vertical-align: middle;
     }
@@ -151,6 +214,8 @@ html, body {
 
 
 
+
+/*
 .has_main_style {
 
     border-color: var(--main_border_color);
@@ -159,26 +224,15 @@ html, body {
 
 }
 
-#file_selection {
+*/
 
-    grid-area: file_selection;
-    background-color: blue;
 
-}
 
-#code_part {
-    grid-area: code_part;
-    background-color: orange;
-}
 
-#nav_bar {
-    grid-area: menu;
-}
 
-#program_code {
-    grid-area: program_code;
-    background-color: grey;
-}
+
+
+
 
 .file_system_item {
     margin-left: 20px;
