@@ -1,6 +1,10 @@
-from django.db import models
+import logging
 
-# Create your models here.
+from django.db import models
+from datetime import datetime
+from django.utils import timezone
+
+logging.basicConfig(filename="logfile.txt", level=logging.DEBUG)
 
 
 class User(models.Model):
@@ -12,7 +16,7 @@ class User(models.Model):
 class FilesystemItem(models.Model):
 
     name = models.CharField(max_length=30)
-    description = models.TextField(null=True)
+    description = models.TextField(null=True, blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     is_deleted = models.BooleanField(default=False)
 
@@ -23,15 +27,45 @@ class FilesystemItem(models.Model):
     class Meta:
         abstract = True
 
+    def __str__(self):
+        return self.name
+
 
 class Directory(FilesystemItem):
-    parent = models.ForeignKey("Directory", null=True, on_delete=models.CASCADE)
+    parent = models.ForeignKey("Directory", null=True, blank=True, on_delete=models.CASCADE)
+
+    def soft_delete(self):
+
+        logging.debug("soft deleting dir")
+
+        for d in Directory.objects.all():
+            if d.parent == self:
+                d.soft_delete()
+
+        for f in File.objects.all():
+
+            logging.debug(f"dir id = {self.id} , file parent id = {f.parent} ")
+            if f.parent.id == self.id:
+                f.soft_delete()
+
+        self.is_deleted = True
+        self.delete_status_date = timezone.now()
+
+        self.save()
 
 
 class File(FilesystemItem):
     parent = models.ForeignKey(Directory, on_delete=models.CASCADE)
-    content = models.TextField(null=True)
+    content = models.TextField(null=True, blank=True)
 
+    def soft_delete(self):
+
+        logging.debug("Soft deleting file")
+
+        self.is_deleted = True
+        self.delete_status_date = timezone.now()
+
+        self.save()
 
 class SectionType(models.Model):
 
@@ -91,7 +125,7 @@ class CompilationStatusInfo(models.Model):
 class Section(models.Model):
 
     name = models.CharField(max_length=30)
-    description = models.TextField(null=True)
+    description = models.TextField(null=True, blank=True)
 
     start = models.PositiveIntegerField()
     end = models.PositiveIntegerField()
@@ -99,6 +133,15 @@ class Section(models.Model):
     status = models.OneToOneField(SectionStatus, on_delete=models.PROTECT)
 
 
+def restore_all():
+
+    for f in File.objects.all():
+        f.is_deleted = False
+        f.save()
+
+    for d in Directory.objects.all():
+        d.is_deleted = False
+        d.save()
 
 
 

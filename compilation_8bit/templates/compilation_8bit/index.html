@@ -1,4 +1,5 @@
 {% load static %}
+{% csrf_token %}
 
 <!DOCTYPE html>
 <html lang="pl">
@@ -7,8 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href = {% static "compilation_8bit/all_compressed.css" %} >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        const get_file_system_url = "{% url 'compilation_8bit:get_file_system' %}"
+        const del_dir_url = "{% url 'compilation_8bit:del_dir' %}"
+        const del_file_url = "{% url 'compilation_8bit:del_file' %}"
+
+    </script>
     <script src =  {% static "compilation_8bit/tabs.js" %}></script>
     <script src = {% static "compilation_8bit/menu_buttons.js" %}></script>
+    <script src = {% static "compilation_8bit/file_system_tree.js" %}></script>
     <script src = {% static "compilation_8bit/onload.js" %}></script>
     <title>Title</title>
 </head>
@@ -186,7 +195,7 @@
 
         </code></pre></div>
         <div id = "file_selection" >
-            <div class = "file_system_item" >
+{% comment %}            <div class = "file_system_item" >
                 main_dir
                 <div class = "file_system_item" >
                     dir1
@@ -199,7 +208,7 @@
                     <div class = "file_system_item"> file_d </div>
                 </div>
 
-            </div>
+            </div>{% endcomment %}
 
         </div>
         <div id = "code_part" class = "has_main_style"> <pre><code>
