@@ -7,6 +7,16 @@ const dependant_prefix = "dependant_"
 let curr_processor_selected = null
 
 
+function setupCompilation() {
+
+    setupCompileOptions()
+
+    setupCompileButton()
+
+
+}
+
+
 function getDependant(base) {
     return $("#" + dependant_prefix + base.attr("id").slice(option_base_prefix.length))
 }
@@ -44,7 +54,31 @@ function setupCompileOptions() {
 }
 
 
+function setupCompileButton() {
 
+    $("#compile_button").click(function() {
+
+        $.ajax(
+            {
+                type: "POST",
+                url: compile_url,
+                headers: {'X-CSRFToken': csrftoken},
+                data: $("#compilation_form").serialize(),
+                success: function (data) {
+                    alert("success")
+                    console.log(data.compile_result)
+                },
+                error: function (data) {
+                    alert(data.responseJSON.error)
+                }
+            })
+
+
+
+    })
+
+
+}
 
 
 

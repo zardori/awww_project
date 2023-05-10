@@ -1,0 +1,244 @@
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11'])])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11'])])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11'])])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11'])])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got compilation request: {}
+DEBUG:root:dict_items([('selected_options', ['C11'])])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got compilation request: {'option_compiler_standard': 'C89', 'option_processor': 'Z80', 'option_dependant_Z80_1': '--callee-saves-bc', 'option_dependant_Z80_2': '--reserve-regs-iy'}
+DEBUG:root:got compilation request: {'option_compiler_standard': 'C89', 'option_processor': 'STM8', 'option_dependant_Z80_1': '--callee-saves-bc', 'option_dependant_Z80_2': '--reserve-regs-iy', 'option_dependant_STM8': '--model-medium'}
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11'])])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got compilation request: {'option_compiler_standard': '--std-c89', 'option_processor': 'Z80', 'option_dependant_Z80_1': '--callee-saves-bc', 'option_dependant_Z80_2': '--reserve-regs-iy'}
+DEBUG:root:parsed options ['--std-c89', '--callee-saves-bc', '--reserve-regs-iy']
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11'])])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:got compilation request: {'option_compiler_standard': '--std-c89', 'option_processor': 'Z80', 'option_dependant_Z80_1': '--callee-saves-bc', 'option_dependant_Z80_2': '--reserve-regs-iy'}
+DEBUG:root:parsed options ['--std-c89', '--callee-saves-bc', '--reserve-regs-iy', '-mz80']
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11'])])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Bad Request: /compilation_8bit/compile
+DEBUG:root:dict_items([('selected_options', ['C11'])])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Bad Request: /compilation_8bit/compile
+DEBUG:root:dict_items([('selected_options', ['C11'])])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Bad Request: /compilation_8bit/compile
+DEBUG:root:id: 7
+DEBUG:root:id: 2
+DEBUG:root:id: 1
+DEBUG:root:id: 6
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 6)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 1
+DEBUG:root:id: 2
+DEBUG:root:id: 7
+DEBUG:root:id: 5
+DEBUG:root:id: 4
+DEBUG:root:id: 3
+DEBUG:root:id: 4
+DEBUG:root:id: 6
+DEBUG:root:id: 1
+DEBUG:root:id: 5
+DEBUG:root:id: 1
+DEBUG:root:id: 2
+DEBUG:root:id: 7
+DEBUG:root:id: 2
+DEBUG:root:id: 1
+DEBUG:root:id: 6
+DEBUG:root:id: 5
+DEBUG:root:id: 4
+DEBUG:root:id: 3
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: D:\compilation_8bit\compilation
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: D:\compilation_8bit\compilation
+DEBUG:root:path: D:\studia\czwarty_semestr\awww\main_project\awww_project
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\compilation
+DEBUG:root:path: D:\studia\czwarty_semestr\awww\main_project\awww_project
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\compilation
+DEBUG:root:path: D:\studia\czwarty_semestr\awww\main_project\awww_project
+ERROR:django.request:Internal Server Error: /compilation_8bit/compile
+Traceback (most recent call last):
+  File "C:\python\lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\python\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py", line 213, in compile
+    with open(settings.BASE_DIR.joinpath('compilation_8bit/compilation/compile_test.txt')):
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\studia\\czwarty_semestr\\awww\\main_project\\awww_project\\compilation_8bit\\compilation\\compile_test.txt'
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\compilation
+DEBUG:root:path: D:\studia\czwarty_semestr\awww\main_project\awww_project
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\compilation
+DEBUG:root:path: D:\studia\czwarty_semestr\awww\main_project\awww_project
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 7
+DEBUG:root:id: 2
+DEBUG:root:id: 1
+DEBUG:root:id: 6
+DEBUG:root:id: 5
+DEBUG:root:id: 4
+DEBUG:root:id: 3
+DEBUG:root:id: 7
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\compilation
+DEBUG:root:path: D:\studia\czwarty_semestr\awww\main_project\awww_project
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:D:\studia\czwarty_semestr\awww\main_project\awww_project\compilation_8bit\views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 7)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 7)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:data received: {'file_name': 'test_file.c', 'content': '\r\nint main() {\r\n\r\n    return 0;\r\n}', 'parent_id': '4'}
+DEBUG:root:got file system request
+DEBUG:root:id: 9
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 9)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 9
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 9)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 9
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', PosixPath('/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c')]
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 9)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 9
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 9)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 9
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c']
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 9)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 9
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c', '-o', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.asm']
+DEBUG:root:id: 9
+DEBUG:root:got compilation request: {'option_compiler_standard': '--std-c89', 'option_processor': 'Z80', 'option_dependant_Z80_1': '--callee-saves-bc', 'option_dependant_Z80_2': '--reserve-regs-iy'}
+DEBUG:root:parsed options ['--std-c89', '--callee-saves-bc', '--reserve-regs-iy', '-mz80']
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', '--std-c89', '--callee-saves-bc', '--reserve-regs-iy', '-mz80', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c', '-o', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.asm']

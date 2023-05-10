@@ -38,6 +38,7 @@
         const add_file_url = "{% url 'compilation_8bit:add_file' %}"
         const get_compilation_standard_url = "{%  url 'compilation_8bit:get_compilation_standard' %}"
         const select_file_url = "{% url 'compilation_8bit:select_file' %}"
+        const compile_url = "{% url 'compilation_8bit:compile' %}"
 
     </script>
     <script src =  {% static "compilation_8bit/tabs.js" %}></script>
@@ -55,7 +56,7 @@
             <button id = "menu_opener" class = "toggle_button nav_bar_toggle_button"> open menu </button>
             <button id = "menu_closer" class = "toggle_button nav_bar_toggle_button"> close </button>
             <div id = "menu" >
-                <div class = "menu_item" > File </div>
+                <div class = "menu_item" id = "compile_button"> Compile </div>
                 <div class = "menu_item" > Edit </div>
                 <div class = "menu_item" > View </div>
                 <div class = "menu_item" > Navigate </div>
@@ -69,14 +70,15 @@
                     <div id = "tab_button_2" class = "tab_button"> PROCESOR </div>
                     <div id = "tab_button_3" class = "tab_button"> ZALEŻNE </div>
                 </div>
+                <form id = "compilation_form">
                 <div id = "tabs_content">
                     <div id = "tab_content_0" class = "tab_content">
 
-                        <input type="radio" id="option_C89" name="option_compiler_standard" value="C89">
+                        <input type="radio" id="option_C89" name="option_compiler_standard" value="--std-c89">
                         <label for="option_C89">C89</label><br>
-                        <input type="radio" id="option_C98" name="option_compiler_standard" value="C98">
-                        <label for="option_C98">C98</label><br>
-                        <input type="radio" id="option_C11" name="option_compiler_standard" value="C11">
+                        <input type="radio" id="option_C98" name="option_compiler_standard" value="--std-c99">
+                        <label for="option_C98">C99</label><br>
+                        <input type="radio" id="option_C11" name="option_compiler_standard" value="--std-c11">
                         <label for="option_C11">C11</label>
 
 
@@ -120,9 +122,9 @@
                         </div>
 
                         <div id = "dependant_Z80" style = "display: none;">
-                            <input type="checkbox" id="option_Z80_1" name="option_dependant_STM8_1" value="--callee-saves-bc">
+                            <input type="checkbox" id="option_Z80_1" name="option_dependant_Z80_1" value="--callee-saves-bc">
                             <label for="option_Z80_1">callee-saves-bc</label><br>
-                            <input type="checkbox" id="option_Z80_2" name="option_dependant_STM8_2" value="--reserve-regs-iy">
+                            <input type="checkbox" id="option_Z80_2" name="option_dependant_Z80_2" value="--reserve-regs-iy">
                             <label for="option_Z80_2">reserve-regs-iy</label>
 
                         </div>
@@ -137,6 +139,7 @@
 
                     </div>
                 </div>
+                </form>
             </div>
         </div>
 

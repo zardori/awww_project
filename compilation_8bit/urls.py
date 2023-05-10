@@ -14,5 +14,6 @@ urlpatterns = [
     path('set_compilation_standard', views.set_compilation_standard,
          name='set_compilation_standard'),
     path('select_file', views.select_file, name='select_file'),
+    path('compile', views.compile, name='compile'),
 
 ]
