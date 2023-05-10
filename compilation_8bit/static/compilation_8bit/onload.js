@@ -3,7 +3,8 @@ window.onload = function() {
     prepareTabs();
     prepareMenuButtons();
     getFileSystem();
-    setupCompilation()
+    setupFileSystemActions();
+    setupCompilation();
 
 
     //getCompileOptions()

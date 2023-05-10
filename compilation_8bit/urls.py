@@ -15,5 +15,6 @@ urlpatterns = [
          name='set_compilation_standard'),
     path('select_file', views.select_file, name='select_file'),
     path('compile', views.compile, name='compile'),
+    path("add_dir", views.add_dir, name='add_dir'),
 
 ]

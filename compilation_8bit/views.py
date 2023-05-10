@@ -90,6 +90,29 @@ def add_file(request):
     return get_file_system(request)
 
 
+def add_dir(request):
+
+    logging.debug(f"got add directory request: {request.POST.dict()}")
+
+    if request.method == "POST":
+
+        if "parent_id" in request.POST:
+            parent = Directory.objects.get(id=request.POST["parent_id"])
+            new_dir = Directory(parent=parent, name=request.POST["dir_name"], owner=parent.owner)
+        else:
+
+            if Directory.objects.all().count() > 0:
+                owner = Directory.objects.all()[:1].get().owner
+            else:
+                owner = User(name="aaa", login="bbb", password="ccc")
+                owner.save()
+            new_dir = Directory(name=request.POST["dir_name"], owner=owner)
+
+        new_dir.save()
+
+    return get_file_system(request)
+
+
 def get_file_system(request):
     logging.debug("got file system request")
 
@@ -135,6 +158,11 @@ def select_file(request):
     content = File.objects.get(pk=selected_id).content
 
     return JsonResponse({"file_content": content})
+
+
+
+
+
 
 
 possible_standards = ["C89", "C99", "C11"]
@@ -230,6 +258,5 @@ def compile(request):
 
     with open(compile_result_file_path, "r") as compiled:
         result = compiled.read()
-
 
     return JsonResponse({"compile_result": result})

@@ -242,3 +242,332 @@ DEBUG:root:parsed options ['--std-c89', '--callee-saves-bc', '--reserve-regs-iy'
 DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
 DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
 DEBUG:root:command: ['sdcc', '-S', '--std-c89', '--callee-saves-bc', '--reserve-regs-iy', '-mz80', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c', '-o', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.asm']
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 9)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:got compilation request: {'option_compiler_standard': '--std-c89', 'option_processor': 'Z80', 'option_dependant_Z80_1': '--callee-saves-bc', 'option_dependant_Z80_2': '--reserve-regs-iy'}
+DEBUG:root:parsed options ['--std-c89', '--callee-saves-bc', '--reserve-regs-iy', '-mz80']
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', '--std-c89', '--callee-saves-bc', '--reserve-regs-iy', '-mz80', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c', '-o', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.asm']
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 9)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c', '-o', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.asm']
+DEBUG:root:id: 6
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c', '-o', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.asm']
+DEBUG:root:id: 9
+DEBUG:root:id: 6
+DEBUG:root:id: 1
+DEBUG:root:id: 7
+DEBUG:root:id: 2
+DEBUG:root:id: 7
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 7)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 9
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 9)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 9)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 9)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 9
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 9)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 9)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:id: 6
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 6)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 5
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 5)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 4
+DEBUG:root:id: 3
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 7
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 7)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 7)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 2
+DEBUG:root:id: 1
+DEBUG:root:id: 9
+DEBUG:root:id: 6
+DEBUG:root:id: 5
+DEBUG:root:id: 4
+DEBUG:root:id: 3
+DEBUG:root:id: 4
+DEBUG:root:id: 5
+DEBUG:root:id: 6
+DEBUG:root:id: 9
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c', '-o', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.asm']
+DEBUG:root:id: 6
+DEBUG:root:id: 5
+DEBUG:root:id: 9
+DEBUG:root:id: 6
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c', '-o', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.asm']
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 6)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 6)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 6)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 6)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:id: 9
+DEBUG:root:got compilation request: {'option_optimization_1': '--opt-code-size'}
+DEBUG:root:parsed options ['--opt-code-size']
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', '--opt-code-size', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c', '-o', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.asm']
+DEBUG:root:id: 6
+DEBUG:root:id: 5
+DEBUG:root:id: 4
+DEBUG:root:id: 3
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c', '-o', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.asm']
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+ERROR:django.request:Internal Server Error: /compilation_8bit/add_dir
+Traceback (most recent call last):
+  File "/home/ignacy/.local/lib/python3.8/site-packages/django/utils/datastructures.py", line 84, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'dir_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ignacy/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ignacy/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py", line 107, in add_dir
+    new_dir = Directory(name=request.POST["dir_name"], owner=owner)
+  File "/home/ignacy/.local/lib/python3.8/site-packages/django/utils/datastructures.py", line 86, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'dir_name'
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+ERROR:django.request:Internal Server Error: /compilation_8bit/add_dir
+Traceback (most recent call last):
+  File "/home/ignacy/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ignacy/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py", line 107, in add_dir
+    new_dir = Directory(name=request.POST["dir_name"], owner=owner)
+  File "/home/ignacy/.local/lib/python3.8/site-packages/django/db/models/base.py", line 543, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "/home/ignacy/.local/lib/python3.8/site-packages/django/db/models/fields/related_descriptors.py", line 266, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<Directory: root_dir>": "Directory.owner" must be a "User" instance.
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:got file system request
+DEBUG:root:got file system request
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3)])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got file system request
+DEBUG:root:got add directory request: {'dir_name': 'sdsdfragds'}
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3), ('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '6c16ed64f182823eebb711fd1dfe836d39d8e6a7dccd6ca4eec2910c6b3994b5')])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3), ('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '6c16ed64f182823eebb711fd1dfe836d39d8e6a7dccd6ca4eec2910c6b3994b5')])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:soft deleting dir
+DEBUG:root:dir id = 5 , file parent id = root_dir 
+DEBUG:root:dir id = 5 , file parent id = root_dir 
+DEBUG:root:dir id = 5 , file parent id = dir_1 
+DEBUG:root:dir id = 5 , file parent id = dir_1 
+DEBUG:root:dir id = 5 , file parent id = dir_2 
+DEBUG:root:dir id = 5 , file parent id = dir_2 
+DEBUG:root:dir id = 5 , file parent id = root_dir 
+DEBUG:root:dir id = 5 , file parent id = dir_1 
+DEBUG:root:dir id = 5 , file parent id = dir_2 
+DEBUG:root:got file system request
+DEBUG:root:soft deleting dir
+DEBUG:root:dir id = 6 , file parent id = root_dir 
+DEBUG:root:dir id = 6 , file parent id = root_dir 
+DEBUG:root:dir id = 6 , file parent id = dir_1 
+DEBUG:root:dir id = 6 , file parent id = dir_1 
+DEBUG:root:dir id = 6 , file parent id = dir_2 
+DEBUG:root:dir id = 6 , file parent id = dir_2 
+DEBUG:root:dir id = 6 , file parent id = root_dir 
+DEBUG:root:dir id = 6 , file parent id = dir_1 
+DEBUG:root:dir id = 6 , file parent id = dir_2 
+DEBUG:root:got file system request
+DEBUG:root:soft deleting dir
+DEBUG:root:dir id = 7 , file parent id = root_dir 
+DEBUG:root:dir id = 7 , file parent id = root_dir 
+DEBUG:root:dir id = 7 , file parent id = dir_1 
+DEBUG:root:dir id = 7 , file parent id = dir_1 
+DEBUG:root:dir id = 7 , file parent id = dir_2 
+DEBUG:root:dir id = 7 , file parent id = dir_2 
+DEBUG:root:dir id = 7 , file parent id = root_dir 
+DEBUG:root:dir id = 7 , file parent id = dir_1 
+DEBUG:root:dir id = 7 , file parent id = dir_2 
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3), ('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '6c16ed64f182823eebb711fd1dfe836d39d8e6a7dccd6ca4eec2910c6b3994b5')])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3), ('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '6c16ed64f182823eebb711fd1dfe836d39d8e6a7dccd6ca4eec2910c6b3994b5')])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got file system request
+DEBUG:root:got add directory request: {'dir_name': 'aaa_bbb_ccc_dir'}
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3), ('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '6c16ed64f182823eebb711fd1dfe836d39d8e6a7dccd6ca4eec2910c6b3994b5')])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3), ('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '6c16ed64f182823eebb711fd1dfe836d39d8e6a7dccd6ca4eec2910c6b3994b5')])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got add directory request: {'dir_name': 'aaaaaaaaaaa'}
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3), ('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '6c16ed64f182823eebb711fd1dfe836d39d8e6a7dccd6ca4eec2910c6b3994b5')])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+DEBUG:root:got file system request
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got add directory request: {'dir_name': 'bbbbbbbbbbbbbbb'}
+DEBUG:root:got file system request
+DEBUG:root:dict_items([('selected_options', ['C11']), ('selected_file_id', 3), ('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '6c16ed64f182823eebb711fd1dfe836d39d8e6a7dccd6ca4eec2910c6b3994b5')])
+DEBUG:root:['Option(C89, standard, True, False', 'Option(C98, standard, True, False', 'Option(C11, standard, True, True']
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got file system request
+DEBUG:root:got add directory request: {'parent_id': '10', 'dir_name': ''}
+DEBUG:root:got file system request

@@ -3,52 +3,89 @@
 ; Version 3.8.0 #10562 (Linux)
 ;--------------------------------------------------------
 	.module compile_tmp
-	.optsdcc -mz80
+	.optsdcc -mmcs51 --model-small
 	
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
-	.globl _main
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
+	.area RSEG    (ABS,DATA)
+	.org 0x0000
 ;--------------------------------------------------------
-; ram data
+; special function bits
 ;--------------------------------------------------------
-	.area _DATA
+	.area RSEG    (ABS,DATA)
+	.org 0x0000
 ;--------------------------------------------------------
-; ram data
+; overlayable register banks
 ;--------------------------------------------------------
-	.area _INITIALIZED
+	.area REG_BANK_0	(REL,OVR,DATA)
+	.ds 8
+;--------------------------------------------------------
+; internal ram data
+;--------------------------------------------------------
+	.area DSEG    (DATA)
+;--------------------------------------------------------
+; overlayable items in internal ram 
+;--------------------------------------------------------
+;--------------------------------------------------------
+; indirectly addressable internal ram data
+;--------------------------------------------------------
+	.area ISEG    (DATA)
+;--------------------------------------------------------
+; absolute internal ram data
+;--------------------------------------------------------
+	.area IABS    (ABS,DATA)
+	.area IABS    (ABS,DATA)
+;--------------------------------------------------------
+; bit data
+;--------------------------------------------------------
+	.area BSEG    (BIT)
+;--------------------------------------------------------
+; paged external ram data
+;--------------------------------------------------------
+	.area PSEG    (PAG,XDATA)
+;--------------------------------------------------------
+; external ram data
+;--------------------------------------------------------
+	.area XSEG    (XDATA)
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
-	.area _DABS (ABS)
+	.area XABS    (ABS,XDATA)
+;--------------------------------------------------------
+; external initialized ram data
+;--------------------------------------------------------
+	.area XISEG   (XDATA)
+	.area HOME    (CODE)
+	.area GSINIT0 (CODE)
+	.area GSINIT1 (CODE)
+	.area GSINIT2 (CODE)
+	.area GSINIT3 (CODE)
+	.area GSINIT4 (CODE)
+	.area GSINIT5 (CODE)
+	.area GSINIT  (CODE)
+	.area GSFINAL (CODE)
+	.area CSEG    (CODE)
 ;--------------------------------------------------------
 ; global & static initialisations
 ;--------------------------------------------------------
-	.area _HOME
-	.area _GSINIT
-	.area _GSFINAL
-	.area _GSINIT
+	.area HOME    (CODE)
+	.area GSINIT  (CODE)
+	.area GSFINAL (CODE)
+	.area GSINIT  (CODE)
 ;--------------------------------------------------------
 ; Home
 ;--------------------------------------------------------
-	.area _HOME
-	.area _HOME
+	.area HOME    (CODE)
+	.area HOME    (CODE)
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-;/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c:2: int main() {
-;	---------------------------------
-; Function main
-; ---------------------------------
-_main::
-;/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c:4: return 0;
-	ld	hl, #0x0000
-;/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c:5: }
-	ret
-	.area _CODE
-	.area _INITIALIZER
-	.area _CABS (ABS)
+	.area CSEG    (CODE)
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+	.area XINIT   (CODE)
+	.area CABS    (ABS,CODE)

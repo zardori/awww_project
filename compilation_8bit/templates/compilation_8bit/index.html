@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href = {% static "compilation_8bit/all_compressed.css" %} >
+    <link rel="stylesheet" href = {% static "compilation_8bit/main_style.css" %} >
+    <link rel="stylesheet" href = {% static "compilation_8bit/tabs_style.css" %} >
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
@@ -39,6 +40,7 @@
         const get_compilation_standard_url = "{%  url 'compilation_8bit:get_compilation_standard' %}"
         const select_file_url = "{% url 'compilation_8bit:select_file' %}"
         const compile_url = "{% url 'compilation_8bit:compile' %}"
+        const add_dir_url = "{% url 'compilation_8bit:add_dir' %}"
 
     </script>
     <script src =  {% static "compilation_8bit/tabs.js" %}></script>
@@ -57,9 +59,9 @@
             <button id = "menu_closer" class = "toggle_button nav_bar_toggle_button"> close </button>
             <div id = "menu" >
                 <div class = "menu_item" id = "compile_button"> Compile </div>
-                <div class = "menu_item" > Edit </div>
-                <div class = "menu_item" > View </div>
-                <div class = "menu_item" > Navigate </div>
+                <div class = "menu_item" id = "add_dir_button"> Add Directory To Root </div>
+{#                <div class = "menu_item" > View </div>#}
+{#                <div class = "menu_item" > Navigate </div>#}
             </div>
         </div>
         <div id = "tabs_wrapper">
@@ -70,7 +72,7 @@
                     <div id = "tab_button_2" class = "tab_button"> PROCESOR </div>
                     <div id = "tab_button_3" class = "tab_button"> ZALEŻNE </div>
                 </div>
-                <form id = "compilation_form">
+                <form id = "compilation_form" >
                 <div id = "tabs_content">
                     <div id = "tab_content_0" class = "tab_content">
 
@@ -81,23 +83,14 @@
                         <input type="radio" id="option_C11" name="option_compiler_standard" value="--std-c11">
                         <label for="option_C11">C11</label>
 
-
-
-
-{% comment %}                        {% for option in standard %}
-                            {% if option.radio %}
-                                {% if option.checked %}
-                                    <input type="radio" id="{{ option.name }}" name="{{option.group}}"
-                                           checked>
-                                {% else %}
-                                    <input type="radio" id="{{ option.name }}" name="{{option.group}}">
-                                {% endif %}
-                                <label for="{{ option.name }}">{{ option.name }}</label><br>
-                            {% endif %}
-                        {% endfor %}{% endcomment %}
+                    </div>
+                    <div id = "tab_content_1" class = "tab_content">
+                        <input type="radio" id="option_optimization_1" name="option_optimization_1" value="--opt-code-speed">
+                        <label for="option_optimization_1">optimize speed</label><br>
+                        <input type="radio" id="option_optimization_2" name="option_optimization_1" value="--opt-code-size">
+                        <label for="option_optimization_2">optimize size</label><br>
 
                     </div>
-                    <div id = "tab_content_1" class = "tab_content"> tab content 1 </div>
                     <div id = "tab_content_2" class = "tab_content">
                         <input type="radio" id="option_base_MCS51" name="option_processor" value="MCS51">
                         <label for="option_base_MCS51">MCS51</label><br>
@@ -149,39 +142,12 @@
             {% endif %}
         </div>
         <div id = "file_selection" >
-{% comment %}            <div class = "file_system_item" >
-                main_dir
-                <div class = "file_system_item" >
-                    dir1
-                    <div class = "file_system_item"> file_a </div>
-                    <div class = "file_system_item"> file_b </div>
-                </div>
-                <div class = "file_system_item">
-                    dir2
-                    <div class = "file_system_item"> file_c </div>
-                    <div class = "file_system_item"> file_d </div>
-                </div>
-
-            </div>{% endcomment %}
 
         </div>
-        <div id = "code_part" class = "has_main_style"> <pre><code>
-    void display_number(uint32_t number) {
-        uint8_t pos=1;
-        if (number == 0)
-            output_max(pos++, 0);
-        while (number &gt; 0) {
-            uint8_t digit = number % 10;
-            output_max(pos++, digit);
-            number /= 10;
-        }
-        // clear rest of digits
-        while (pos &lt;= 8) {
-            output_max(pos++, 0xf);
-        }
-    }
+        <div id = "code_part" class = "has_main_style"> <pre>
 
-        </code></pre> </div>
+            </pre>
+        </div>
 
         <!-- Buttons for mobile version -->
         <button id = "tabs_opener" class = "toggle_button tabs_toggle_button"> open tabs </button>

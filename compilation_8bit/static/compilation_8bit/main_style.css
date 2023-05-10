@@ -91,6 +91,37 @@ html, body {
 }
 
 
+/* popup window */
+.popup_window {
+
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    left: 35%;
+    top: 35%;
+    background-color: white;
+    border: 2px solid black
+}
+
+.popup_window div {
+    width: fit-content;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup_close_button {
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+
+}
+
+
+
 @media only screen and (max-width: 600px) {
 
     #main_box {
