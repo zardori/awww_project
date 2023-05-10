@@ -2,12 +2,43 @@ import logging
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from .models import File, Directory, User
+from .compile_options import compile_options
 
 logging.basicConfig(filename="logfile.txt", level=logging.DEBUG)
 
 # session keys
 selected_file_id_key = "selected_file_id"
+selected_options_key = "selected_options"
 
+# If the standard is defined in session take it to the context.
+# If not set the default standard for session and context.
+def get_compiler_standard(session, context):
+
+    #logging.debug(f"current session: {session.items()}")
+
+    default_standard = "C11"
+
+    if selected_options_key not in session:
+        session[selected_options_key] = []
+
+    standard_already_selected = False
+
+    for option in compile_options.standard:
+        if option.name in session[selected_options_key]:
+            option.checked = True
+            standard_already_selected = True
+        else:
+            option.checked = False
+
+    if not standard_already_selected:
+        compile_options.name_to_opt(default_standard).checked = True
+        session[selected_options_key].append(default_standard)
+
+    #logging.debug(f"{[ str(opt) for opt in compile_options.standard]}")
+
+    context["standard"] = compile_options.standard
+
+    #logging.debug(f"{[ str(opt) for opt in context['standard']]}")
 
 
 def index(request):
@@ -19,6 +50,10 @@ def index(request):
     if selected_file_id_key in request.session:
         selected_file = File.objects.get(pk=int(request.session[selected_file_id_key]))
         context["selected_file"] = selected_file
+
+    get_compiler_standard(request.session, context)
+
+    logging.debug(f"{[str(opt) for opt in context['standard']]}")
 
     return render(request, "compilation_8bit/index.html", context)
 

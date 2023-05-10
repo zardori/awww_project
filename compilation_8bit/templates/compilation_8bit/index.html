@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href = {% static "compilation_8bit/all_compressed.css" %} >
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
 
@@ -71,16 +72,70 @@
                 <div id = "tabs_content">
                     <div id = "tab_content_0" class = "tab_content">
 
-{#                        <input type="radio" id="html" name="fav_language" value="HTML">#}
-{#                        <label for="html">HTML</label><br>#}
-{#                        <input type="radio" id="css" name="fav_language" value="CSS">#}
-{#                        <label for="css">CSS</label><br>#}
-{#                        <input type="radio" id="javascript" name="fav_language" value="JavaScript">#}
-{#                        <label for="javascript">JavaScript</label>#}
+                        <input type="radio" id="option_C89" name="option_compiler_standard" value="C89">
+                        <label for="option_C89">C89</label><br>
+                        <input type="radio" id="option_C98" name="option_compiler_standard" value="C98">
+                        <label for="option_C98">C98</label><br>
+                        <input type="radio" id="option_C11" name="option_compiler_standard" value="C11">
+                        <label for="option_C11">C11</label>
+
+
+
+
+{% comment %}                        {% for option in standard %}
+                            {% if option.radio %}
+                                {% if option.checked %}
+                                    <input type="radio" id="{{ option.name }}" name="{{option.group}}"
+                                           checked>
+                                {% else %}
+                                    <input type="radio" id="{{ option.name }}" name="{{option.group}}">
+                                {% endif %}
+                                <label for="{{ option.name }}">{{ option.name }}</label><br>
+                            {% endif %}
+                        {% endfor %}{% endcomment %}
+
                     </div>
                     <div id = "tab_content_1" class = "tab_content"> tab content 1 </div>
-                    <div id = "tab_content_2" class = "tab_content"> tab content 2 </div>
-                    <div id = "tab_content_3" class = "tab_content"> tab content 3 </div>
+                    <div id = "tab_content_2" class = "tab_content">
+                        <input type="radio" id="option_base_MCS51" name="option_processor" value="MCS51">
+                        <label for="option_base_MCS51">MCS51</label><br>
+                        <input type="radio" id="option_base_Z80" name="option_processor" value="Z80">
+                        <label for="option_base_Z80">Z80</label><br>
+                        <input type="radio" id="option_base_STM8" name="option_processor" value="STM8">
+                        <label for="option_base_STM8">STM8</label>
+                    </div>
+                    <div id = "tab_content_3" class = "tab_content">
+
+                        <div id = "dependant_MCS51" style = "display: none;">
+
+                            <input type="radio" id="option_MCS51_small" name="option_dependant_MCS51" value="--model-small">
+                            <label for="option_MCS51_small">model-small</label><br>
+                            <input type="radio" id="option_MCS51_medium" name="option_dependant_MCS51" value="--model-medium">
+                            <label for="option_MCS51_medium">model-medium</label><br>
+                            <input type="radio" id="option_MCS51_large" name="option_dependant_MCS51" value="--model-large">
+                            <label for="option_MCS51_large">model-large</label><br>
+                            <input type="radio" id="option_MCS51_huge" name="option_dependant_MCS51" value="--model-huge">
+                            <label for="option_MCS51_huge">model-huge</label>
+
+                        </div>
+
+                        <div id = "dependant_Z80" style = "display: none;">
+                            <input type="checkbox" id="option_Z80_1" name="option_dependant_STM8_1" value="--callee-saves-bc">
+                            <label for="option_Z80_1">callee-saves-bc</label><br>
+                            <input type="checkbox" id="option_Z80_2" name="option_dependant_STM8_2" value="--reserve-regs-iy">
+                            <label for="option_Z80_2">reserve-regs-iy</label>
+
+                        </div>
+
+                        <div id = "dependant_STM8" style = "display: none;">
+                            <input type="radio" id="option_STM8_medium" name="option_dependant_STM8" value="--model-medium">
+                            <label for="option_STM8_medium">model-medium</label><br>
+                            <input type="radio" id="option_STM8_large" name="option_dependant_STM8" value="--model-large">
+                            <label for="option_STM8_large">model-large</label>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
