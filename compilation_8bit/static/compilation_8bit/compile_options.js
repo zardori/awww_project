@@ -8,11 +8,8 @@ let curr_processor_selected = null
 
 
 function setupCompilation() {
-
     setupCompileOptions()
-
     setupCompileButton()
-
 }
 
 
@@ -21,12 +18,8 @@ function getDependant(base) {
 }
 
 function setupCompileOptions() {
-
     $("[id^='" + option_base_prefix + "']").each(function(){
-
         let current = $(this)
-
-
         let dependant_elem = getDependant(current)
 
         if (current.is(':checked')) {
@@ -36,19 +29,13 @@ function setupCompileOptions() {
             dependant_elem.css("display", "none")
         }
 
-
         current.change( function() {
-
             if (curr_processor_selected != null) {
                 getDependant(curr_processor_selected).css("display", "none")
             }
-
             getDependant(current).css("display", "block")
-
             curr_processor_selected = current
-
         })
-
     })
 }
 

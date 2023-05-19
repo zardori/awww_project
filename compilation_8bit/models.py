@@ -3,14 +3,9 @@ import logging
 from django.db import models
 from datetime import datetime
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 logging.basicConfig(filename="logfile.txt", level=logging.DEBUG)
-
-
-class User(models.Model):
-    name = models.CharField(max_length=30)
-    login = models.CharField(max_length=30)
-    password = models.CharField(max_length=30)
 
 
 class FilesystemItem(models.Model):
@@ -66,6 +61,7 @@ class File(FilesystemItem):
         self.delete_status_date = timezone.now()
 
         self.save()
+
 
 class SectionType(models.Model):
 

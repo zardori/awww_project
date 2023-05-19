@@ -5,4 +5,3 @@ from .models import File, Directory, User
 
 admin.site.register(File)
 admin.site.register(Directory)
-admin.site.register(User)

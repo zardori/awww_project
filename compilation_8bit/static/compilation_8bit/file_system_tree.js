@@ -23,7 +23,6 @@ function delFileSystemItem(item) {
         item_id = parseInt(html_node_id.slice(file_id_prefix.length))
     }
 
-
     $.ajax(
         {
             type: "GET",
@@ -65,7 +64,6 @@ function addFile(file, parent_id) {
     })
 
     reader.readAsText(file)
-
 }
 
 function setupFileSystemActions() {
@@ -104,7 +102,6 @@ function addDirectory(parent_id) {
             to_send.parent_id = parent_id
         }
 
-
         $(".popup_window").remove()
 
         $.ajax(
@@ -126,9 +123,6 @@ function addDirectory(parent_id) {
 }
 
 
-
-
-
 // Add div node representing file or directory to the parent div.
 function addFileSystemNode(container, name, id, shift, is_dir) {
 
@@ -139,6 +133,7 @@ function addFileSystemNode(container, name, id, shift, is_dir) {
     inserted.css("display", "flex")
     inserted.css("flex-direction", "row")
     inserted.css("width", "fit-content")
+    inserted.css("cursor", "default")
 
     inserted.append("<div></div>")
     let name_div = inserted.children().last()
@@ -151,7 +146,6 @@ function addFileSystemNode(container, name, id, shift, is_dir) {
     del_button.click(function() {
         delFileSystemItem(inserted)
     })
-
 
     if (is_dir) {
         inserted.css("color", "yellow")
@@ -181,7 +175,6 @@ function addFileSystemNode(container, name, id, shift, is_dir) {
             addDirectory(id)
         })
 
-
     } else /* is file */ {
         inserted.css("color", "red")
         inserted.attr("id", file_id_prefix + id)
@@ -189,7 +182,6 @@ function addFileSystemNode(container, name, id, shift, is_dir) {
         if (curr_selected_file_id === id) {
             inserted.css("background-color", "black")
         }
-
 
         inserted.click(
             function () {
@@ -219,16 +211,10 @@ function addFileSystemNode(container, name, id, shift, is_dir) {
                             alert("Error happened")
                         }
                     })
-
-
             }
         )
-
-
     }
-
 }
-
 
 
 function printDir(file_system, curr_dir, shift) {
@@ -248,12 +234,9 @@ function printDir(file_system, curr_dir, shift) {
 
     for (file of file_system.files) {
         if (file.parent === curr_dir.id) {
-
             addFileSystemNode(container, file.name, file.id, shift + tree_step_len, false)
-
         }
     }
-
 }
 
 
@@ -263,7 +246,6 @@ function showFileSystem(file_system) {
     if (Object.hasOwn(file_system, "selected_file_id")) {
         curr_selected_file_id = file_system.selected_file_id
     }
-
 
     console.log(file_system)
 
@@ -283,10 +265,7 @@ function showFileSystem(file_system) {
 
 
 function getFileSystem() {
-
-
-    console.log("url: " + get_file_system_url)
-
+    //console.log("url: " + get_file_system_url)
     $.ajax(
         {
             type: "GET",

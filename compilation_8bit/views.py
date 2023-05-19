@@ -1,5 +1,6 @@
 import logging
 import subprocess
+from .forms import AddFileForm
 
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
@@ -15,53 +16,67 @@ selected_file_id_key = "selected_file_id"
 selected_options_key = "selected_options"
 
 
+# decorator for returning 403 error if the user is not logged
+def logged_or_403(func):
+    def inner(request):
+        if not request.user.is_authenticated:
+            response = JsonResponse({"error": "no user logged"})
+            response.status_code = 403
+            return response
+        return func(request)
+    return inner
+
+
+
+
 # If the standard is defined in session take it to the context.
 # If not set the default standard for session and context.
-def get_compiler_standard(session, context):
-    # logging.debug(f"current session: {session.items()}")
-
-    default_standard = "C11"
-
-    if selected_options_key not in session:
-        session[selected_options_key] = []
-
-    standard_already_selected = False
-
-    for option in compile_options.standard:
-        if option.name in session[selected_options_key]:
-            option.checked = True
-            standard_already_selected = True
-        else:
-            option.checked = False
-
-    if not standard_already_selected:
-        compile_options.name_to_opt(default_standard).checked = True
-        session[selected_options_key].append(default_standard)
-
-    # logging.debug(f"{[ str(opt) for opt in compile_options.standard]}")
-
-    context["standard"] = compile_options.standard
-
-    # logging.debug(f"{[ str(opt) for opt in context['standard']]}")
+# def get_compiler_standard(session, context):
+#     # logging.debug(f"current session: {session.items()}")
+#
+#     default_standard = "C11"
+#
+#     if selected_options_key not in session:
+#         session[selected_options_key] = []
+#
+#     standard_already_selected = False
+#
+#     for option in compile_options.standard:
+#         if option.name in session[selected_options_key]:
+#             option.checked = True
+#             standard_already_selected = True
+#         else:
+#             option.checked = False
+#
+#     if not standard_already_selected:
+#         compile_options.name_to_opt(default_standard).checked = True
+#         session[selected_options_key].append(default_standard)
+#
+#     # logging.debug(f"{[ str(opt) for opt in compile_options.standard]}")
+#
+#     context["standard"] = compile_options.standard
+#
+#     # logging.debug(f"{[ str(opt) for opt in context['standard']]}")
 
 
 @login_required
 def index(request):
     context = {}
 
-    logging.debug(f"{request.session.items()}")
+    #logging.debug(f"{request.session.items()}")
 
     if selected_file_id_key in request.session:
         selected_file = File.objects.get(pk=int(request.session[selected_file_id_key]))
         context["selected_file"] = selected_file
 
-    get_compiler_standard(request.session, context)
+    #get_compiler_standard(request.session, context)
 
-    logging.debug(f"{[str(opt) for opt in context['standard']]}")
+    #logging.debug(f"{[str(opt) for opt in context['standard']]}")
 
     return render(request, "compilation_8bit/index.html", context)
 
 
+@logged_or_403
 def del_file(request):
     file_id = int(request.GET["id"])
 
@@ -70,6 +85,7 @@ def del_file(request):
     return get_file_system(request)
 
 
+@logged_or_403
 def del_dir(request):
     dir_id = int(request.GET["id"])
 
@@ -78,10 +94,14 @@ def del_dir(request):
     return get_file_system(request)
 
 
+@logged_or_403
 def add_file(request):
     logging.debug(f"data received: {request.POST.dict()}")
 
     if request.method == "POST":
+
+        form = AddFileForm(request.POST)
+
         parent = Directory.objects.get(id=request.POST["parent_id"])
 
         new_file = File(parent=parent, name=request.POST["file_name"],
@@ -92,6 +112,7 @@ def add_file(request):
     return get_file_system(request)
 
 
+@logged_or_403
 def add_dir(request):
     logging.debug(f"got add directory request: {request.POST.dict()}")
 
@@ -114,6 +135,7 @@ def add_dir(request):
     return get_file_system(request)
 
 
+@logged_or_403
 def get_file_system(request):
     logging.debug("got file system request")
 
@@ -122,16 +144,16 @@ def get_file_system(request):
     files = []
     directories = []
 
-    for f in File.objects.all().filter(is_deleted__exact=False):
-
+    for f in File.objects.all().filter(is_deleted__exact=False)\
+            .filter(owner=request.user):
         parent = None
         if f.parent is not None:
             parent = f.parent.id
 
         files.append({"id": f.id, "name": f.name, "parent": parent})
 
-    for d in Directory.objects.all().filter(is_deleted__exact=False):
-
+    for d in Directory.objects.all().filter(is_deleted__exact=False)\
+            .filter(owner=request.user):
         parent = None
         if d.parent is not None:
             parent = d.parent.id
@@ -147,6 +169,7 @@ def get_file_system(request):
     return JsonResponse(to_return)
 
 
+@logged_or_403
 def select_file(request):
     session = request.session
 
@@ -154,38 +177,40 @@ def select_file(request):
 
     session[selected_file_id_key] = selected_id
 
-    logging.debug(f"id: {selected_id}")
+    #logging.debug(f"id: {selected_id}")
 
     content = File.objects.get(pk=selected_id).content
+
+    #logging.debug(f"selected file content: {content}")
 
     return JsonResponse({"file_content": content})
 
 
-possible_standards = ["C89", "C99", "C11"]
-possible_optimizations = ["opt1", "opt2", "opt3"]
-possible_processors = ["MCS51", "Z80", "STM8"]
-
-processor_dependant = {"MCS51": ["MCS51_opt_1", "MCS51_opt_2"],
-                       "Z80": ["Z80_opt_1", "Z80_opt_2"],
-                       "STM8": ["STM8_opt_1", "STM8_opt_2"]
-                       }
-
-
-def get_compilation_standard(request):
-    # If the standard is not set yet, set the default one
-    if "compiler_standard" not in request.session:
-        request.session["compiler_standard"] = "C11"
-
-    to_return = {"possible_standards": possible_standards,
-                 "compiler_standard": request.session["compiler_standard"]}
-
-    return JsonResponse(to_return)
-
-
-def set_compilation_standard(request):
-    request.session["compiler_standard"] = request.GET["compiler_standard"]
-
-    return HttpResponse("success")
+# possible_standards = ["C89", "C99", "C11"]
+# possible_optimizations = ["opt1", "opt2", "opt3"]
+# possible_processors = ["MCS51", "Z80", "STM8"]
+#
+# processor_dependant = {"MCS51": ["MCS51_opt_1", "MCS51_opt_2"],
+#                        "Z80": ["Z80_opt_1", "Z80_opt_2"],
+#                        "STM8": ["STM8_opt_1", "STM8_opt_2"]
+#                        }
+#
+#
+# def get_compilation_standard(request):
+#     # If the standard is not set yet, set the default one
+#     if "compiler_standard" not in request.session:
+#         request.session["compiler_standard"] = "C11"
+#
+#     to_return = {"possible_standards": possible_standards,
+#                  "compiler_standard": request.session["compiler_standard"]}
+#
+#     return JsonResponse(to_return)
+#
+#
+# def set_compilation_standard(request):
+#     request.session["compiler_standard"] = request.GET["compiler_standard"]
+#
+#     return HttpResponse("success")
 
 
 processor_name_to_option = {
@@ -195,7 +220,8 @@ processor_name_to_option = {
 }
 
 
-def compile(request):
+@logged_or_403
+def compile_file(request):
     if selected_file_id_key not in request.session:
         response = JsonResponse({"error": "no file selcted"})
         response.status_code = 400

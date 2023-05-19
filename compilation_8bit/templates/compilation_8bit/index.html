@@ -40,7 +40,7 @@
         const del_dir_url = "{% url 'compilation_8bit:del_dir' %}"
         const del_file_url = "{% url 'compilation_8bit:del_file' %}"
         const add_file_url = "{% url 'compilation_8bit:add_file' %}"
-        const get_compilation_standard_url = "{%  url 'compilation_8bit:get_compilation_standard' %}"
+        {#const get_compilation_standard_url = "{%  url 'compilation_8bit:get_compilation_standard' %}"#}
         const select_file_url = "{% url 'compilation_8bit:select_file' %}"
         const compile_url = "{% url 'compilation_8bit:compile' %}"
         const add_dir_url = "{% url 'compilation_8bit:add_dir' %}"
@@ -145,6 +145,8 @@
         <div id = "program_code" class = "has_main_style">
             {% if selected_file %}
                 <pre>{{ selected_file.content }}</pre>
+            {% else %}
+                <pre></pre>
             {% endif %}
         </div>
         <div id = "file_selection" >
