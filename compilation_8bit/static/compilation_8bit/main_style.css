@@ -90,6 +90,14 @@ html, body {
     cursor: pointer;
 }
 
+#logout a{
+    color: var(--main_text_color);
+}
+
+#logout a:visited {
+    color: var(--main_text_color);
+}
+
 
 /* popup window */
 .popup_window {

@@ -6,6 +6,7 @@ from django.http import JsonResponse, HttpResponse
 from .models import File, Directory, User
 from .compile_options import compile_options
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 logging.basicConfig(filename="logfile.txt", level=logging.DEBUG)
 
@@ -44,6 +45,7 @@ def get_compiler_standard(session, context):
     # logging.debug(f"{[ str(opt) for opt in context['standard']]}")
 
 
+@login_required
 def index(request):
     context = {}
 
@@ -91,7 +93,6 @@ def add_file(request):
 
 
 def add_dir(request):
-
     logging.debug(f"got add directory request: {request.POST.dict()}")
 
     if request.method == "POST":
@@ -158,11 +159,6 @@ def select_file(request):
     content = File.objects.get(pk=selected_id).content
 
     return JsonResponse({"file_content": content})
-
-
-
-
-
 
 
 possible_standards = ["C89", "C99", "C11"]

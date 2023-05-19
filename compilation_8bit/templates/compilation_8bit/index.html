@@ -7,8 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="shortcut icon" type="image/png" href="{% static 'compilation_8bit/favicon.ico' %}"/>
+
     <link rel="stylesheet" href = {% static "compilation_8bit/main_style.css" %} >
     <link rel="stylesheet" href = {% static "compilation_8bit/tabs_style.css" %} >
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
@@ -60,9 +63,12 @@
             <div id = "menu" >
                 <div class = "menu_item" id = "compile_button"> Compile </div>
                 <div class = "menu_item" id = "add_dir_button"> Add Directory To Root </div>
-{#                <div class = "menu_item" > View </div>#}
-{#                <div class = "menu_item" > Navigate </div>#}
+                <div class = "menu_item" id = "logged_info"> Logged as: {{ user.get_username }} </div>
+                <div class = "menu_item" id = "logout">
+                    <a href="{% url 'logout' %}">Logout</a>
+                </div>
             </div>
+
         </div>
         <div id = "tabs_wrapper">
             <div id = "tabs" >
