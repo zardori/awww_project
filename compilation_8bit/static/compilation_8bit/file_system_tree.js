@@ -244,7 +244,7 @@ function printDir(file_system, curr_dir, shift) {
 function showFileSystem(file_system) {
 
     if (Object.hasOwn(file_system, "selected_file_id")) {
-        curr_selected_file_id = file_system.selected_file_id
+        curr_selected_file_id = parseInt(file_system.selected_file_id)
     }
 
     console.log(file_system)
@@ -274,8 +274,8 @@ function getFileSystem() {
                 showFileSystem(data)
 
             },
-            error: function () {
-                alert("Error happened")
+            error: function (data) {
+                alert(data.responseJSON.error)
             }
         })
 

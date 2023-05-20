@@ -24,8 +24,30 @@ def logged_or_403(func):
             response.status_code = 403
             return response
         return func(request)
+
     return inner
 
+
+def get_object_from_id(model, object_id):
+    try:
+        object_id = int(object_id)
+        return model.objects.get(pk=object_id)
+    except (model.DoesNotExist, ValueError, TypeError):
+        return None
+
+    # objects = model.objects.filter(pk=object_id)
+    #
+    # if len(objects) != 0:
+    #     return objects.get(pk=object_id)
+    # else:
+    #     return None
+    #
+
+
+def error_json(text, code):
+    response = JsonResponse({"error": text})
+    response.status_code = code
+    return response
 
 
 
@@ -63,35 +85,73 @@ def logged_or_403(func):
 def index(request):
     context = {}
 
-    #logging.debug(f"{request.session.items()}")
+    logging.debug(f"session object inside index view: {request.session.items()}")
 
-    if selected_file_id_key in request.session:
-        selected_file = File.objects.get(pk=int(request.session[selected_file_id_key]))
+    selected_file = get_object_from_id(File, request.session.get(selected_file_id_key))
+
+    if selected_file is not None and selected_file.owner == request.user:
         context["selected_file"] = selected_file
+    else:
+        # If selected file id is not valid, clean the session field.
+        request.session.pop(selected_file_id_key, None)
 
-    #get_compiler_standard(request.session, context)
+    #
+    # if selected_file_id_key in request.session:
+    #     selected_file = get_object_from_id(File, request.session[selected_file_id_key])
+    #     if selected_file is not None and selected_file.owner == request.user:
+    #         context["selected_file"] = selected_file
+    #     else:
+    #         # If selected file id is not valid, clean the session field.
+    #         del request.session[selected_file_id_key]
 
-    #logging.debug(f"{[str(opt) for opt in context['standard']]}")
+    # get_compiler_standard(request.session, context)
+    # logging.debug(f"{[str(opt) for opt in context['standard']]}")
 
     return render(request, "compilation_8bit/index.html", context)
 
 
-@logged_or_403
-def del_file(request):
-    file_id = int(request.GET["id"])
+# Helper function for deleting files and directories
+def del_file_system_object(request, model):
+    object_to_del = get_object_from_id(model, request.GET.get("id"))
 
-    File.objects.get(pk=file_id).soft_delete()
+    if object_to_del is not None and object_to_del.owner == request.user:
+        object_to_del.soft_delete()
+    else:
+        response = JsonResponse(
+            {"error": f"cannot delete object of id = {str(request.GET.get('id'))}"}
+        )
+        response.status_code = 400
+        return response
 
     return get_file_system(request)
+
+
+@logged_or_403
+def del_file(request):
+    return del_file_system_object(request, File)
+    # file = get_object_from_id(File, request.GET.get("id"))
+    #
+    # if file is not None and file.owner == request.user:
+    #     file.soft_delete()
+    # else:
+    #     response = JsonResponse(
+    #         {"error": f"cannot delete file of id = {str(request.GET.get('id'))}"}
+    #     )
+    #     response.status_code = 400
+    #     return response
+    #
+    # return get_file_system(request)
 
 
 @logged_or_403
 def del_dir(request):
-    dir_id = int(request.GET["id"])
+    return del_file_system_object(request, Directory)
 
-    Directory.objects.get(id=dir_id).soft_delete()
-
-    return get_file_system(request)
+    # dir_id = int(request.GET["id"])
+    #
+    # Directory.objects.get(id=dir_id).soft_delete()
+    #
+    # return get_file_system(request)
 
 
 @logged_or_403
@@ -99,7 +159,6 @@ def add_file(request):
     logging.debug(f"data received: {request.POST.dict()}")
 
     if request.method == "POST":
-
         form = AddFileForm(request.POST)
 
         parent = Directory.objects.get(id=request.POST["parent_id"])
@@ -144,7 +203,7 @@ def get_file_system(request):
     files = []
     directories = []
 
-    for f in File.objects.all().filter(is_deleted__exact=False)\
+    for f in File.objects.all().filter(is_deleted__exact=False) \
             .filter(owner=request.user):
         parent = None
         if f.parent is not None:
@@ -152,7 +211,7 @@ def get_file_system(request):
 
         files.append({"id": f.id, "name": f.name, "parent": parent})
 
-    for d in Directory.objects.all().filter(is_deleted__exact=False)\
+    for d in Directory.objects.all().filter(is_deleted__exact=False) \
             .filter(owner=request.user):
         parent = None
         if d.parent is not None:
@@ -171,19 +230,31 @@ def get_file_system(request):
 
 @logged_or_403
 def select_file(request):
-    session = request.session
 
-    selected_id = int(request.GET[selected_file_id_key])
+    file_to_select = get_object_from_id(File, request.GET.get(selected_file_id_key))
 
-    session[selected_file_id_key] = selected_id
+    if file_to_select is not None and file_to_select.owner == request.user:
+        request.session[selected_file_id_key] = request.GET[selected_file_id_key]
+    else:
+        response = JsonResponse(
+            {"error": f"cannot select object of id = {str(request.GET.get(selected_file_id_key))}"}
+        )
+        response.status_code = 400
+        return response
 
-    #logging.debug(f"id: {selected_id}")
+    # session = request.session
+    #
+    # selected_id = int(request.GET[selected_file_id_key])
+    #
+    # session[selected_file_id_key] = selected_id
+    #
+    # # logging.debug(f"id: {selected_id}")
+    #
+    # content = File.objects.get(pk=selected_id).content
+    #
+    # # logging.debug(f"selected file content: {content}")
 
-    content = File.objects.get(pk=selected_id).content
-
-    #logging.debug(f"selected file content: {content}")
-
-    return JsonResponse({"file_content": content})
+    return JsonResponse({"file_content": file_to_select.content})
 
 
 # possible_standards = ["C89", "C99", "C11"]
@@ -222,10 +293,16 @@ processor_name_to_option = {
 
 @logged_or_403
 def compile_file(request):
-    if selected_file_id_key not in request.session:
-        response = JsonResponse({"error": "no file selcted"})
-        response.status_code = 400
-        return response
+    selected_file_id = request.session.get(selected_file_id_key)
+    if selected_file_id is None:
+        return error_json("no file selected", 400)
+
+    selected_file = get_object_from_id(File, selected_file_id)
+    if selected_file is None:
+        return error_json("bad file selected", 400)
+
+    if selected_file.owner != request.user:
+        return error_json("cannot access selected file", 403)
 
     logging.debug(f"got compilation request: {request.POST.dict()}")
 
@@ -247,9 +324,14 @@ def compile_file(request):
         split = option.split("_")
 
         if split[0] == "option":
-            if (split[1] == "dependant" and split[2] == curr_processor) \
-                    or split[1] != "dependant":
+
+            if (len(split) >= 2 and split[1] != "dependant") \
+                    or (len(split) >= 3 and split[1] == "dependant" and split[2] == curr_processor):
                 parsed_options.append(options_dict[option])
+
+            # if (split[1] == "dependant" and split[2] == curr_processor) \
+            #         or split[1] != "dependant":
+            #     parsed_options.append(options_dict[option])
 
     if curr_processor != "":
         parsed_options.append(processor_name_to_option[curr_processor])
