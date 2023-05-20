@@ -1,5 +1,8 @@
 import logging
 import subprocess
+
+from django.urls import reverse
+
 from .forms import AddFileForm
 
 from django.shortcuts import render
@@ -50,7 +53,6 @@ def error_json(text, code):
     return response
 
 
-
 # If the standard is defined in session take it to the context.
 # If not set the default standard for session and context.
 # def get_compiler_standard(session, context):
@@ -83,6 +85,7 @@ def error_json(text, code):
 
 @login_required
 def index(request):
+
     context = {}
 
     logging.debug(f"session object inside index view: {request.session.items()}")
@@ -230,7 +233,6 @@ def get_file_system(request):
 
 @logged_or_403
 def select_file(request):
-
     file_to_select = get_object_from_id(File, request.GET.get(selected_file_id_key))
 
     if file_to_select is not None and file_to_select.owner == request.user:

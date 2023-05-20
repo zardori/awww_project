@@ -16,5 +16,4 @@ urlpatterns = [
     path('select_file', views.select_file, name='select_file'),
     path('compile', views.compile_file, name='compile'),
     path("add_dir", views.add_dir, name='add_dir'),
-
 ]
