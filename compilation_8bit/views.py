@@ -53,50 +53,20 @@ def error_json(text, code):
     return response
 
 
-# If the standard is defined in session take it to the context.
-# If not set the default standard for session and context.
-# def get_compiler_standard(session, context):
-#     # logging.debug(f"current session: {session.items()}")
-#
-#     default_standard = "C11"
-#
-#     if selected_options_key not in session:
-#         session[selected_options_key] = []
-#
-#     standard_already_selected = False
-#
-#     for option in compile_options.standard:
-#         if option.name in session[selected_options_key]:
-#             option.checked = True
-#             standard_already_selected = True
-#         else:
-#             option.checked = False
-#
-#     if not standard_already_selected:
-#         compile_options.name_to_opt(default_standard).checked = True
-#         session[selected_options_key].append(default_standard)
-#
-#     # logging.debug(f"{[ str(opt) for opt in compile_options.standard]}")
-#
-#     context["standard"] = compile_options.standard
-#
-#     # logging.debug(f"{[ str(opt) for opt in context['standard']]}")
-
-
 @login_required
 def index(request):
 
-    context = {}
-
-    logging.debug(f"session object inside index view: {request.session.items()}")
-
-    selected_file = get_object_from_id(File, request.session.get(selected_file_id_key))
-
-    if selected_file is not None and selected_file.owner == request.user:
-        context["selected_file"] = selected_file
-    else:
-        # If selected file id is not valid, clean the session field.
-        request.session.pop(selected_file_id_key, None)
+    # context = {}
+    #
+    # logging.debug(f"session object inside index view: {request.session.items()}")
+    #
+    # selected_file = get_object_from_id(File, request.session.get(selected_file_id_key))
+    #
+    # if selected_file is not None and selected_file.owner == request.user:
+    #     context["selected_file"] = selected_file
+    # else:
+    #     # If selected file id is not valid, clean the session field.
+    #     request.session.pop(selected_file_id_key, None)
 
     #
     # if selected_file_id_key in request.session:
@@ -110,7 +80,7 @@ def index(request):
     # get_compiler_standard(request.session, context)
     # logging.debug(f"{[str(opt) for opt in context['standard']]}")
 
-    return render(request, "compilation_8bit/index.html", context)
+    return render(request, "compilation_8bit/index.html", {})
 
 
 # Helper function for deleting files and directories
@@ -132,29 +102,12 @@ def del_file_system_object(request, model):
 @logged_or_403
 def del_file(request):
     return del_file_system_object(request, File)
-    # file = get_object_from_id(File, request.GET.get("id"))
-    #
-    # if file is not None and file.owner == request.user:
-    #     file.soft_delete()
-    # else:
-    #     response = JsonResponse(
-    #         {"error": f"cannot delete file of id = {str(request.GET.get('id'))}"}
-    #     )
-    #     response.status_code = 400
-    #     return response
-    #
-    # return get_file_system(request)
 
 
 @logged_or_403
 def del_dir(request):
     return del_file_system_object(request, Directory)
 
-    # dir_id = int(request.GET["id"])
-    #
-    # Directory.objects.get(id=dir_id).soft_delete()
-    #
-    # return get_file_system(request)
 
 
 @logged_or_403
