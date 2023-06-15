@@ -1,2 +1,25 @@
-<p>Logged out!</p>
-<a href="{% url 'login' %}">Click here to login again.</a>
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+
+    <link rel="stylesheet" href = {% static "compilation_8bit/login_style.css" %} >
+
+</head>
+<body>
+
+<h1 id = "title"> Compilation 8bit </h1>
+
+<div id = "main_container">
+    <div id = "inner_container">
+        <div id = "logout_text"> Logged out successfully. </div>
+        <a href="{% url 'login' %}"><button id = "login_again_button">Login Again</button></a>
+    </div>
+</div>
+
+</body>
+</html>
+
+

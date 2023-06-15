@@ -8,9 +8,11 @@ from django.contrib.auth.models import User
 logging.basicConfig(filename="logfile.txt", level=logging.DEBUG)
 
 
-class FilesystemItem(models.Model):
 
-    name = models.CharField(max_length=30)
+class FilesystemItem(models.Model):
+    MAX_FILE_SYSTEM_ITEM_NAME_LEN = 30
+
+    name = models.CharField(max_length=MAX_FILE_SYSTEM_ITEM_NAME_LEN)
     description = models.TextField(null=True, blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     is_deleted = models.BooleanField(default=False)
@@ -34,7 +36,8 @@ class Directory(FilesystemItem):
 
     def soft_delete(self):
 
-        logging.debug("soft deleting dir")
+        if self.is_deleted:
+            return
 
         for d in Directory.objects.all():
             if d.parent == self:
@@ -42,7 +45,7 @@ class Directory(FilesystemItem):
 
         for f in File.objects.all():
 
-            logging.debug(f"dir id = {self.id} , file parent id = {f.parent} ")
+            # logging.debug(f"dir id = {self.id} , file parent id = {f.parent.id} ")
             if f.parent.id == self.id:
                 f.soft_delete()
 
@@ -58,7 +61,8 @@ class File(FilesystemItem):
 
     def soft_delete(self):
 
-        logging.debug("Soft deleting file")
+        if self.is_deleted:
+            return
 
         self.is_deleted = True
         self.delete_status_date = timezone.now()
@@ -66,70 +70,70 @@ class File(FilesystemItem):
         self.save()
 
 
-class SectionType(models.Model):
-
-    PROCEDURE = 0
-    COMMENT = 1
-    DIRECTIVE = 2
-    VARS_DECLARATION = 3
-    ASSEMBLY_CODE = 4
-
-    TYPE = (
-        (PROCEDURE, "procedure"),
-        (COMMENT, "comment"),
-        (DIRECTIVE, "directive"),
-        (VARS_DECLARATION, "variables declaration"),
-        (ASSEMBLY_CODE, "assembly code")
-    )
-
-    type = models.PositiveSmallIntegerField(choices=TYPE)
-
-
-class SectionStatus(models.Model):
-
-    COMPILATION_OK = 0
-    COMPILATION_WARNING = 1
-    COMPILATION_ERROR = 2
-    UNKNOWN = 3
-
-    STATUS = (
-        (COMPILATION_OK, "compiles without warnings"),
-        (COMPILATION_WARNING, "compiles with warning(s)"),
-        (COMPILATION_ERROR, "not compiles"),
-        (UNKNOWN, "not compiled yet")
-    )
-
-    status = models.PositiveSmallIntegerField(choices=STATUS)
-
-
-class CompilationStatusInfo(models.Model):
-
-    section_status = models.ForeignKey(SectionStatus, on_delete=models.CASCADE)
-
-    code_line = models.PositiveIntegerField()
-
-    info = models.TextField()
-
-    WARNING = 0
-    ERROR = 1
-
-    TYPE = (
-        (WARNING, "warning"),
-        (ERROR, "error"),
-    )
-
-    info_type = models.PositiveSmallIntegerField(choices=TYPE)
-
-
-class Section(models.Model):
-
-    name = models.CharField(max_length=30)
-    description = models.TextField(null=True, blank=True)
-
-    start = models.PositiveIntegerField()
-    end = models.PositiveIntegerField()
-
-    status = models.OneToOneField(SectionStatus, on_delete=models.PROTECT)
+# class SectionType(models.Model):
+#
+#     PROCEDURE = 0
+#     COMMENT = 1
+#     DIRECTIVE = 2
+#     VARS_DECLARATION = 3
+#     ASSEMBLY_CODE = 4
+#
+#     TYPE = (
+#         (PROCEDURE, "procedure"),
+#         (COMMENT, "comment"),
+#         (DIRECTIVE, "directive"),
+#         (VARS_DECLARATION, "variables declaration"),
+#         (ASSEMBLY_CODE, "assembly code")
+#     )
+#
+#     type = models.PositiveSmallIntegerField(choices=TYPE)
+#
+#
+# class SectionStatus(models.Model):
+#
+#     COMPILATION_OK = 0
+#     COMPILATION_WARNING = 1
+#     COMPILATION_ERROR = 2
+#     UNKNOWN = 3
+#
+#     STATUS = (
+#         (COMPILATION_OK, "compiles without warnings"),
+#         (COMPILATION_WARNING, "compiles with warning(s)"),
+#         (COMPILATION_ERROR, "not compiles"),
+#         (UNKNOWN, "not compiled yet")
+#     )
+#
+#     status = models.PositiveSmallIntegerField(choices=STATUS)
+#
+#
+# class CompilationStatusInfo(models.Model):
+#
+#     section_status = models.ForeignKey(SectionStatus, on_delete=models.CASCADE)
+#
+#     code_line = models.PositiveIntegerField()
+#
+#     info = models.TextField()
+#
+#     WARNING = 0
+#     ERROR = 1
+#
+#     TYPE = (
+#         (WARNING, "warning"),
+#         (ERROR, "error"),
+#     )
+#
+#     info_type = models.PositiveSmallIntegerField(choices=TYPE)
+#
+#
+# class Section(models.Model):
+#
+#     name = models.CharField(max_length=30)
+#     description = models.TextField(null=True, blank=True)
+#
+#     start = models.PositiveIntegerField()
+#     end = models.PositiveIntegerField()
+#
+#     status = models.OneToOneField(SectionStatus, on_delete=models.PROTECT)
 
 
 def restore_all():

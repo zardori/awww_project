@@ -1,0 +1,69 @@
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    top: 0;
+}
+
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#main_container {
+
+    background-color: darkblue;
+    color: white;
+    width: 40%;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    border: 2px solid aqua;
+
+}
+
+#title {
+    color: white;
+    text-align: center;
+}
+
+#login_form {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#inner_container {
+    position: absolute;
+    width: 70%;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#login_again_button {
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+}
+
+#logout_text {
+    font-size: 130%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+}

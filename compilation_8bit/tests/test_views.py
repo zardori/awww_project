@@ -17,22 +17,6 @@ class IndexViewTest(TestCase):
         test_user = User.objects.create_user(username='testuser1', password='aasdfafd1&1b')
         test_user.save()
 
-        # dir_1 = Directory.objects.create(name="dir_1", owner=test_user)
-        #
-        # dir_1.save()
-        #
-        # file_1 = File.objects.create(name="file_1", content="file_1_content", parent=dir_1,
-        #                              owner=test_user)
-        #
-        # file_2 = File.objects.create(name="file_2", content="file_2_content", parent=dir_1,
-        #                              owner=test_user)
-        #
-        # file_1.save()
-        # file_2.save()
-        #
-        # cls.file_1 = file_1
-        # cls.file_2 = file_2
-
     def setUp(self):
         pass
 
@@ -81,9 +65,6 @@ class DeleteObjectTest(TestCase):
         self.client.login(username='testuser1', password='aasdfafd1&1b')
 
         request = reverse("compilation_8bit:del_file") + "?id=" + str(self.file_1_usr1.id)
-
-        print(request)
-
         response = self.client.get(request)
 
         self.assertEqual(response.status_code, 200)
@@ -130,4 +111,108 @@ class DeleteObjectTest(TestCase):
 
         self.assertEqual(response.status_code, 400)
 
+
+class AddDirTest(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        test_user1 = User.objects.create_user(username='testuser1', password='aasdfafd1&1b')
+        test_user1.save()
+
+        test_user2 = User.objects.create_user(username='testuser2', password='bbsdfafd1&1b')
+        test_user2.save()
+
+        cls.test_user1 = test_user1
+        cls.test_user2 = test_user2
+
+    def setUp(self):
+        dir_1_usr1 = Directory.objects.create(name="dir_1", owner=self.test_user1)
+        dir_1_usr1.save()
+
+        self.dir_1_usr1 = dir_1_usr1
+
+    def testBasicAdd(self):
+        self.client.login(username='testuser1', password='aasdfafd1&1b')
+        data = {"parent_id": str(self.dir_1_usr1.id), "dir_name": "new_dir"}
+        response = self.client.post(reverse("compilation_8bit:add_dir"), data)
+
+        self.assertEqual(response.status_code, 200)
+
+        new_dir = Directory.objects.get(name="new_dir")
+
+        self.assertEqual(new_dir.parent, self.dir_1_usr1)
+
+    def testRootAdd(self):
+        self.client.login(username='testuser1', password='aasdfafd1&1b')
+        data = {"dir_name": "new_dir"}
+        response = self.client.post(reverse("compilation_8bit:add_dir"), data)
+
+        self.assertEqual(response.status_code, 200)
+        new_dir = Directory.objects.get(name="new_dir")
+        self.assertEqual(new_dir.parent, None)
+
+    def testBadName(self):
+        self.client.login(username='testuser1', password='aasdfafd1&1b')
+        data = {"dir_name": "toooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo long name"}
+        response = self.client.post(reverse("compilation_8bit:add_dir"), data)
+        self.assertEqual(response.status_code, 400)
+
+    def testBadUser(self):
+        self.client.login(username='testuser2', password='bbsdfafd1&1b')
+        data = {"parent_id": str(self.dir_1_usr1.id), "dir_name": "new_dir"}
+        response = self.client.post(reverse("compilation_8bit:add_dir"), data)
+
+        self.assertEqual(response.status_code, 400)
+class AddFileTest(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        test_user1 = User.objects.create_user(username='testuser1', password='aasdfafd1&1b')
+        test_user1.save()
+
+        test_user2 = User.objects.create_user(username='testuser2', password='bbsdfafd1&1b')
+        test_user2.save()
+
+        cls.test_user1 = test_user1
+        cls.test_user2 = test_user2
+
+    def setUp(self):
+        dir_1_usr1 = Directory.objects.create(name="dir_1", owner=self.test_user1)
+        dir_1_usr1.save()
+
+        self.dir_1_usr1 = dir_1_usr1
+
+
+    def testBasicAdd(self):
+        self.client.login(username='testuser1', password='aasdfafd1&1b')
+        data = {"parent_id": str(self.dir_1_usr1.id), "file_name": "new_file", "content": "new_content"}
+        response = self.client.post(reverse("compilation_8bit:add_file"), data)
+
+        self.assertEqual(response.status_code, 200)
+
+        new_file = File.objects.get(name="new_file")
+
+        self.assertEqual(new_file.content, "new_content")
+        self.assertEqual(new_file.parent, self.dir_1_usr1)
+
+    def testBadParent(self):
+        self.client.login(username='testuser1', password='aasdfafd1&1b')
+        data = {"parent_id": "aaaa", "file_name": "new_file", "content": "new_content"}
+        response = self.client.post(reverse("compilation_8bit:add_file"), data)
+
+        self.assertEqual(response.status_code, 400)
+
+    def testNoContent(self):
+        self.client.login(username='testuser1', password='aasdfafd1&1b')
+        data = {"parent_id": self.dir_1_usr1, "file_name": "new_file"}
+        response = self.client.post(reverse("compilation_8bit:add_file"), data)
+
+        self.assertEqual(response.status_code, 400)
+
+    def testNoName(self):
+        self.client.login(username='testuser1', password='aasdfafd1&1b')
+        data = {"parent_id": self.dir_1_usr1, "content": "new_content"}
+        response = self.client.post(reverse("compilation_8bit:add_file"), data)
+
+        self.assertEqual(response.status_code, 400)
 

@@ -1,79 +1,165 @@
-INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/urls.py changed, reloading.
+DEBUG:root:dir id = 1 , file parent id = dir_1 
+DEBUG:root:dir id = 1 , file parent id = dir_1 
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+DEBUG:root:got file system request
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:dir id = 1 , file parent id = dir_1 
+DEBUG:root:dir id = 1 , file parent id = dir_1 
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/del_dir
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/models.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dir id = 1 , file parent id = 1 
+DEBUG:root:dir id = 1 , file parent id = 1 
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+DEBUG:root:got file system request
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:dir id = 1 , file parent id = 1 
+DEBUG:root:dir id = 1 , file parent id = 1 
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/del_dir
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/models.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:root:dir id = 1 , file parent id = 1 
+DEBUG:root:dir id = 1 , file parent id = 1 
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+DEBUG:root:got file system request
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:dir id = 1 , file parent id = 1 
+DEBUG:root:dir id = 1 , file parent id = 1 
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/del_dir
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+DEBUG:root:dir id = 1 , file parent id = 1 
+DEBUG:root:dir id = 1 , file parent id = 1 
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+DEBUG:root:got file system request
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:dir id = 1 , file parent id = 1 
+DEBUG:root:dir id = 1 , file parent id = 1 
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/del_dir
+DEBUG:root:got file system request
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/models.py changed, reloading.
 INFO:django.utils.autoreload:Watching for file changes with StatReloader
 INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
 INFO:django.utils.autoreload:Watching for file changes with StatReloader
-DEBUG:root:session object inside index view: dict_items([('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '51658d62e0210fee0d0963f6050979b9b98483a848a42fed57ce724cb7e40614')])
-DEBUG:root:session object inside index view: dict_items([('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '2c6196b2fcc151ee6ae5c962bcac9819fc318f7c3765fd035799ebdcaa01b058')])
-DEBUG:root:session object inside index view: dict_items([('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '2c6196b2fcc151ee6ae5c962bcac9819fc318f7c3765fd035799ebdcaa01b058')])
-DEBUG:root:session object inside index view: dict_items([('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', 'e24c41d80a20839e366b0f0138b971961b6741801e3bceab6ca0f3295e399e13')])
-DEBUG:root:session object inside index view: dict_items([('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', 'd8f2129bcd15e9d9a434036113de59265aaf7b1c12342cd19d5e27f564c1c5e5')])
-DEBUG:root:session object inside index view: dict_items([('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', 'c569a8ad67395feaae283d78b47e397de89fe8b02e58340d0bcd52ed7084ffa3'), ('selected_file_id', 1)])
-DEBUG:root:session object inside index view: dict_items([('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', 'c569a8ad67395feaae283d78b47e397de89fe8b02e58340d0bcd52ed7084ffa3')])
-DEBUG:root:session object inside index view: dict_items([('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '53355d163b5d96f91b8dbec2a8ac9d41d1d180202ede6bf408446ba550e70bf1'), ('selected_file_id', 1)])
-DEBUG:root:session object inside index view: dict_items([('_auth_user_id', '1'), ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'), ('_auth_user_hash', '53355d163b5d96f91b8dbec2a8ac9d41d1d180202ede6bf408446ba550e70bf1')])
-INFO:django.utils.autoreload:Watching for file changes with StatReloader
-DEBUG:root:got file system request
-DEBUG:root:got file system request
-DEBUG:root:got file system request
-DEBUG:root:data received: {'file_name': 'test_file.txt', 'content': 'This is test_file content.', 'parent_id': '2'}
-DEBUG:root:got file system request
 INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
 INFO:django.utils.autoreload:Watching for file changes with StatReloader
-DEBUG:root:soft deleting dir
-DEBUG:root:dir id = 1 , file parent id = dir_1 
-DEBUG:root:Soft deleting file
-DEBUG:root:dir id = 1 , file parent id = dir_1 
-DEBUG:root:Soft deleting file
 DEBUG:root:got file system request
+DEBUG:root:{'files': [{'id': 3, 'name': 'admin_file_2', 'parent': 1}], 'directories': [{'id': 1, 'name': 'admin_dir', 'parent': None}, {'id': 5, 'name': 'admin_dir_4', 'parent': 1}]}
+DEBUG:root:got file system request
+DEBUG:root:{'files': [{'id': 3, 'name': 'admin_file_2', 'parent': 1}, {'id': 7, 'name': 'logfile.txt', 'parent': 5}], 'directories': [{'id': 1, 'name': 'admin_dir', 'parent': None}, {'id': 5, 'name': 'admin_dir_4', 'parent': 1}]}
+DEBUG:root:got file system request
+DEBUG:root:{'files': [{'id': 3, 'name': 'admin_file_2', 'parent': 1}, {'id': 7, 'name': 'logfile.txt', 'parent': 5}], 'directories': [{'id': 1, 'name': 'admin_dir', 'parent': None}, {'id': 5, 'name': 'admin_dir_4', 'parent': 1}], 'selected_file_id': '3'}
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:root:got file system request
+DEBUG:root:{'files': [], 'directories': []}
+DEBUG:root:got file system request
+DEBUG:root:{'files': [], 'directories': []}
+DEBUG:root:got file system request
+DEBUG:root:{'files': [], 'directories': [{'id': 7, 'name': 'user_a_new_dir', 'parent': None}]}
+DEBUG:root:got file system request
+DEBUG:root:{'files': [{'id': 8, 'name': 'test_file.c', 'parent': 7}], 'directories': [{'id': 7, 'name': 'user_a_new_dir', 'parent': None}]}
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c', '-o', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.asm']
+DEBUG:root:got compilation request: {}
+DEBUG:root:parsed options []
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation
+DEBUG:root:path: /mnt/d/studia/czwarty_semestr/awww/main_project/awww_project
+DEBUG:root:command: ['sdcc', '-S', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.c', '-o', '/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/compilation/compile_tmp.asm']
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+DEBUG:root:got file system request
+DEBUG:root:{'files': [], 'directories': [{'id': 1, 'name': 'dir_1', 'parent': None}, {'id': 2, 'name': 'new_dir', 'parent': 1}]}
+DEBUG:root:got file system request
+DEBUG:root:{'files': [], 'directories': [{'id': 1, 'name': 'dir_1', 'parent': None}, {'id': 2, 'name': 'new_dir', 'parent': None}]}
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:got file system request
+DEBUG:root:{'files': [{'id': 1, 'name': 'new_file', 'parent': 1}], 'directories': [{'id': 1, 'name': 'dir_1', 'parent': None}]}
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:got file system request
+DEBUG:root:{'files': [], 'directories': []}
 WARNING:django.request:Bad Request: /compilation_8bit/del_dir
-DEBUG:root:Soft deleting file
 DEBUG:root:got file system request
-WARNING:django.request:Bad Request: /compilation_8bit/del_file
-WARNING:django.request:Bad Request: /compilation_8bit/del_dir
-DEBUG:root:soft deleting dir
-DEBUG:root:dir id = 1 , file parent id = dir_1 
-DEBUG:root:Soft deleting file
-DEBUG:root:dir id = 1 , file parent id = dir_1 
-DEBUG:root:Soft deleting file
-DEBUG:root:got file system request
-WARNING:django.request:Bad Request: /compilation_8bit/del_dir
-DEBUG:root:Soft deleting file
-DEBUG:root:got file system request
-WARNING:django.request:Bad Request: /compilation_8bit/del_file
-WARNING:django.request:Bad Request: /compilation_8bit/del_dir
-DEBUG:root:soft deleting dir
-DEBUG:root:dir id = 1 , file parent id = dir_1 
-DEBUG:root:Soft deleting file
-DEBUG:root:dir id = 1 , file parent id = dir_1 
-DEBUG:root:Soft deleting file
-DEBUG:root:got file system request
-WARNING:django.request:Bad Request: /compilation_8bit/del_dir
-DEBUG:root:Soft deleting file
-DEBUG:root:got file system request
-WARNING:django.request:Bad Request: /compilation_8bit/del_file
-WARNING:django.request:Bad Request: /compilation_8bit/del_dir
-DEBUG:root:soft deleting dir
-DEBUG:root:dir id = 1 , file parent id = dir_1 
-DEBUG:root:Soft deleting file
-DEBUG:root:dir id = 1 , file parent id = dir_1 
-DEBUG:root:Soft deleting file
-DEBUG:root:got file system request
-WARNING:django.request:Bad Request: /compilation_8bit/del_dir
-DEBUG:root:Soft deleting file
-DEBUG:root:got file system request
-WARNING:django.request:Bad Request: /compilation_8bit/del_file
-WARNING:django.request:Bad Request: /compilation_8bit/del_dir
-DEBUG:root:soft deleting dir
-DEBUG:root:dir id = 1 , file parent id = dir_1 
-DEBUG:root:Soft deleting file
-DEBUG:root:dir id = 1 , file parent id = dir_1 
-DEBUG:root:Soft deleting file
-DEBUG:root:got file system request
-WARNING:django.request:Bad Request: /compilation_8bit/del_dir
-DEBUG:root:Soft deleting file
-DEBUG:root:got file system request
+DEBUG:root:{'files': [{'id': 2, 'name': 'file_2', 'parent': 1}], 'directories': [{'id': 1, 'name': 'dir_1', 'parent': None}]}
 WARNING:django.request:Bad Request: /compilation_8bit/del_file
 WARNING:django.request:Bad Request: /compilation_8bit/del_file
 WARNING:django.request:Bad Request: /compilation_8bit/del_file
-INFO:django.utils.autoreload:/mnt/d/studia/czwarty_semestr/awww/main_project/awww_project/compilation_8bit/views.py changed, reloading.
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+DEBUG:root:got file system request
+DEBUG:root:{'files': [], 'directories': [{'id': 1, 'name': 'dir_1', 'parent': None}, {'id': 2, 'name': 'new_dir', 'parent': 1}]}
+DEBUG:root:got file system request
+DEBUG:root:{'files': [], 'directories': [{'id': 1, 'name': 'dir_1', 'parent': None}, {'id': 2, 'name': 'new_dir', 'parent': None}]}
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:got file system request
+DEBUG:root:{'files': [{'id': 1, 'name': 'new_file', 'parent': 1}], 'directories': [{'id': 1, 'name': 'dir_1', 'parent': None}]}
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:got file system request
+DEBUG:root:{'files': [], 'directories': []}
+WARNING:django.request:Bad Request: /compilation_8bit/del_dir
+DEBUG:root:got file system request
+DEBUG:root:{'files': [{'id': 2, 'name': 'file_2', 'parent': 1}], 'directories': [{'id': 1, 'name': 'dir_1', 'parent': None}]}
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+WARNING:django.request:Bad Request: /compilation_8bit/add_dir
+DEBUG:root:got file system request
+DEBUG:root:{'files': [], 'directories': [{'id': 1, 'name': 'dir_1', 'parent': None}, {'id': 2, 'name': 'new_dir', 'parent': 1}]}
+DEBUG:root:got file system request
+DEBUG:root:{'files': [], 'directories': [{'id': 1, 'name': 'dir_1', 'parent': None}, {'id': 2, 'name': 'new_dir', 'parent': None}]}
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:got file system request
+DEBUG:root:{'files': [{'id': 1, 'name': 'new_file', 'parent': 1}], 'directories': [{'id': 1, 'name': 'dir_1', 'parent': None}]}
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+WARNING:django.request:Bad Request: /compilation_8bit/add_file
+DEBUG:root:got file system request
+DEBUG:root:{'files': [], 'directories': []}
+WARNING:django.request:Bad Request: /compilation_8bit/del_dir
+DEBUG:root:got file system request
+DEBUG:root:{'files': [{'id': 2, 'name': 'file_2', 'parent': 1}], 'directories': [{'id': 1, 'name': 'dir_1', 'parent': None}]}
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
+WARNING:django.request:Bad Request: /compilation_8bit/del_file
 INFO:django.utils.autoreload:Watching for file changes with StatReloader

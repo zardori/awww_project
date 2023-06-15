@@ -3,11 +3,10 @@ import subprocess
 
 from django.urls import reverse
 
-from .forms import AddFileForm
 
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
-from .models import File, Directory, User
+from .models import File, Directory, User, FilesystemItem
 from .compile_options import compile_options
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -38,14 +37,6 @@ def get_object_from_id(model, object_id):
     except (model.DoesNotExist, ValueError, TypeError):
         return None
 
-    # objects = model.objects.filter(pk=object_id)
-    #
-    # if len(objects) != 0:
-    #     return objects.get(pk=object_id)
-    # else:
-    #     return None
-    #
-
 
 def error_json(text, code):
     response = JsonResponse({"error": text})
@@ -55,30 +46,6 @@ def error_json(text, code):
 
 @login_required
 def index(request):
-
-    # context = {}
-    #
-    # logging.debug(f"session object inside index view: {request.session.items()}")
-    #
-    # selected_file = get_object_from_id(File, request.session.get(selected_file_id_key))
-    #
-    # if selected_file is not None and selected_file.owner == request.user:
-    #     context["selected_file"] = selected_file
-    # else:
-    #     # If selected file id is not valid, clean the session field.
-    #     request.session.pop(selected_file_id_key, None)
-
-    #
-    # if selected_file_id_key in request.session:
-    #     selected_file = get_object_from_id(File, request.session[selected_file_id_key])
-    #     if selected_file is not None and selected_file.owner == request.user:
-    #         context["selected_file"] = selected_file
-    #     else:
-    #         # If selected file id is not valid, clean the session field.
-    #         del request.session[selected_file_id_key]
-
-    # get_compiler_standard(request.session, context)
-    # logging.debug(f"{[str(opt) for opt in context['standard']]}")
 
     return render(request, "compilation_8bit/index.html", {})
 
@@ -109,45 +76,52 @@ def del_dir(request):
     return del_file_system_object(request, Directory)
 
 
-
 @logged_or_403
 def add_file(request):
-    logging.debug(f"data received: {request.POST.dict()}")
+    #logging.debug(f"data received: {request.POST.dict()}")
 
-    if request.method == "POST":
-        form = AddFileForm(request.POST)
+    parent = get_object_from_id(Directory, request.POST.get("parent_id"))
+    name = request.POST.get("file_name")
+    owner = request.user
+    content = request.POST.get("content")
 
-        parent = Directory.objects.get(id=request.POST["parent_id"])
+    if name is None or len(name) > FilesystemItem.MAX_FILE_SYSTEM_ITEM_NAME_LEN\
+            or content is None or parent is None:
+        return error_json("Cannot add file.", 400)
 
-        new_file = File(parent=parent, name=request.POST["file_name"],
-                        content=request.POST["content"], owner=parent.owner)
+    if parent.owner != owner:
+        return error_json("Cannot add file.", 400)
 
-        new_file.save()
+    new_file = File(parent=parent, name=name,
+                    content=content, owner=owner)
+    new_file.save()
 
     return get_file_system(request)
 
 
 @logged_or_403
 def add_dir(request):
-    logging.debug(f"got add directory request: {request.POST.dict()}")
+    #logging.debug(f"got add directory request: {request.POST.dict()}")
 
-    if request.method == "POST":
+    parent = get_object_from_id(Directory, request.POST.get("parent_id"))
+    name = request.POST.get("dir_name")
+    owner = request.user
 
-        if "parent_id" in request.POST:
-            parent = Directory.objects.get(id=request.POST["parent_id"])
-            new_dir = Directory(parent=parent, name=request.POST["dir_name"], owner=parent.owner)
+    if name is None or len(name) > FilesystemItem.MAX_FILE_SYSTEM_ITEM_NAME_LEN:
+        return error_json("Cannot add directory.", 400)
+
+    if parent is None:
+        new_dir = Directory(name=name, owner=owner)
+    else:
+        if request.user != parent.owner:
+            return error_json("Cannot add directory.", 400)
         else:
+            new_dir = Directory(parent=parent, name=name, owner=owner)
 
-            if Directory.objects.all().count() > 0:
-                owner = Directory.objects.all()[:1].get().owner
-            else:
-                owner = User(name="aaa", login="bbb", password="ccc")
-                owner.save()
-            new_dir = Directory(name=request.POST["dir_name"], owner=owner)
-
-        new_dir.save()
+    new_dir.save()
 
     return get_file_system(request)
+
 
 
 @logged_or_403
@@ -181,6 +155,8 @@ def get_file_system(request):
     if selected_file_id_key in request.session:
         to_return[selected_file_id_key] = request.session[selected_file_id_key]
 
+    logging.debug(to_return)
+
     return JsonResponse(to_return)
 
 
@@ -191,52 +167,9 @@ def select_file(request):
     if file_to_select is not None and file_to_select.owner == request.user:
         request.session[selected_file_id_key] = request.GET[selected_file_id_key]
     else:
-        response = JsonResponse(
-            {"error": f"cannot select object of id = {str(request.GET.get(selected_file_id_key))}"}
-        )
-        response.status_code = 400
-        return response
-
-    # session = request.session
-    #
-    # selected_id = int(request.GET[selected_file_id_key])
-    #
-    # session[selected_file_id_key] = selected_id
-    #
-    # # logging.debug(f"id: {selected_id}")
-    #
-    # content = File.objects.get(pk=selected_id).content
-    #
-    # # logging.debug(f"selected file content: {content}")
+        return error_json("Cannot select file", 400)
 
     return JsonResponse({"file_content": file_to_select.content})
-
-
-# possible_standards = ["C89", "C99", "C11"]
-# possible_optimizations = ["opt1", "opt2", "opt3"]
-# possible_processors = ["MCS51", "Z80", "STM8"]
-#
-# processor_dependant = {"MCS51": ["MCS51_opt_1", "MCS51_opt_2"],
-#                        "Z80": ["Z80_opt_1", "Z80_opt_2"],
-#                        "STM8": ["STM8_opt_1", "STM8_opt_2"]
-#                        }
-#
-#
-# def get_compilation_standard(request):
-#     # If the standard is not set yet, set the default one
-#     if "compiler_standard" not in request.session:
-#         request.session["compiler_standard"] = "C11"
-#
-#     to_return = {"possible_standards": possible_standards,
-#                  "compiler_standard": request.session["compiler_standard"]}
-#
-#     return JsonResponse(to_return)
-#
-#
-# def set_compilation_standard(request):
-#     request.session["compiler_standard"] = request.GET["compiler_standard"]
-#
-#     return HttpResponse("success")
 
 
 processor_name_to_option = {
@@ -284,9 +217,6 @@ def compile_file(request):
                     or (len(split) >= 3 and split[1] == "dependant" and split[2] == curr_processor):
                 parsed_options.append(options_dict[option])
 
-            # if (split[1] == "dependant" and split[2] == curr_processor) \
-            #         or split[1] != "dependant":
-            #     parsed_options.append(options_dict[option])
 
     if curr_processor != "":
         parsed_options.append(processor_name_to_option[curr_processor])
