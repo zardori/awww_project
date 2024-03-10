@@ -4,4 +4,5 @@ window.onload = function() {
     getFileSystem();
     setupFileSystemActions();
     setupCompilation();
+    setupLogoutButton();
 }

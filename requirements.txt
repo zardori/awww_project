@@ -1,0 +1,2 @@
+# Older versions of django probably will work too
+django >= 5.0.3

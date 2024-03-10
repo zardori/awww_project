@@ -44,12 +44,14 @@
         const select_file_url = "{% url 'compilation_8bit:select_file' %}"
         const compile_url = "{% url 'compilation_8bit:compile' %}"
         const add_dir_url = "{% url 'compilation_8bit:add_dir' %}"
+        const logout_url = "{% url 'logout' %}"
 
     </script>
     <script src =  {% static "compilation_8bit/tabs.js" %}></script>
     <script src = {% static "compilation_8bit/menu_buttons.js" %}></script>
     <script src = {% static "compilation_8bit/file_system_tree.js" %}></script>
     <script src = {% static "compilation_8bit/compile_options.js" %}></script>
+    <script src = {% static "compilation_8bit/logout.js" %}></script>
     <script src = {% static "compilation_8bit/onload.js" %}></script>
     <title>Title</title>
 </head>
@@ -64,9 +66,7 @@
                 <div class = "menu_item" id = "compile_button"> Compile </div>
                 <div class = "menu_item" id = "add_dir_button"> Add Directory To Root </div>
                 <div class = "menu_item" id = "logged_info"> Logged as: {{ user.get_username }} </div>
-                <div class = "menu_item" id = "logout">
-                    <a href="{% url 'logout' %}">Logout</a>
-                </div>
+                <div class = "menu_item" id = "logout"> Logout </div>
             </div>
 
         </div>
