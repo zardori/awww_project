@@ -2,3 +2,6 @@ __pycache__/
 .idea/
 
 logfile.txt
+
+# ignore compilation temporary files
+*_tmp.*
